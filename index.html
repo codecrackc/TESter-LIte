@@ -1,0 +1,4678 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FRÍO FANTASY | Heladería Artesanal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <meta name="theme-color" content="#1e90ff">
+
+  <style>
+    /* ===== VARIABLES Y ESTILOS BASE ===== */
+    :root {
+      --primary: #e91e63;
+      --primary-dark: #c2185b;
+      --secondary: #ff9800;
+      --light: #fff5f8;
+      --dark: #333;
+      --gray: #666;
+      --light-gray: #f5f5f5;
+      --border-radius: 20px;
+      --box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: #fff;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      font-size: 1rem;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 7px 15px rgba(233, 30, 99, 0.3);
+    }
+    
+    .btn-secondary {
+      background: var(--secondary);
+      color: white;
+    }
+    
+    .btn-secondary:hover {
+      background: #f57c00;
+      transform: translateY(-3px);
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: var(--dark);
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+      }
+    }
+    
+    /* ===== HEADER Y NAVEGACIÓN RESPONSIVE ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo img {
+      height: 70px;
+      width: auto;
+      min-height: 50px;
+      max-height: 80px;
+      object-fit: contain;
+      transition: var(--transition);
+    }
+    
+    /* Menú hamburguesa */
+    .hamburger {
+      display: flex !important;
+      flex-direction: column;
+      cursor: pointer;
+      width: 30px;
+      height: 24px;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1001;
+    }
+    
+    .hamburger i {
+      font-size: 24px;
+      color: var(--dark);
+      transition: var(--transition);
+    }
+    
+    .hamburger:hover i {
+      color: var(--primary);
+    }
+    
+    /* Navegación principal */
+    nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100vh;
+      background: white;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      transition: var(--transition);
+      z-index: 1000;
+      padding-top: 80px;
+    }
+    
+    nav.active {
+      right: 0;
+    }
+    
+    .nav-links {
+      padding: 20px;
+    }
+    
+    .nav-links li {
+      margin-bottom: 20px;
+    }
+    
+    .nav-links a {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--dark);
+      transition: var(--transition);
+      display: block;
+      padding: 10px 0;
+      border-bottom: 2px solid transparent;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+    }
+    
+    /* Botones del header */
+    .header-buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-right: 10px;
+    }
+    
+    .user-avatar-small {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffe0b2, #ffebee);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .user-avatar-small img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .user-avatar-small i {
+      font-size: 18px;
+      color: var(--gray);
+    }
+    
+    .btn-logout {
+      background: none;
+      border: none;
+      color: var(--gray);
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+    
+    .btn-logout:hover {
+      color: var(--primary);
+    }
+    
+    .cart-btn, .user-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      color: var(--dark);
+      cursor: pointer;
+      position: relative;
+      transition: var(--transition);
+    }
+    
+    .cart-btn:hover, .user-btn:hover {
+      color: var(--primary);
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--primary);
+      color: white;
+      font-size: 0.8rem;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Overlay para el menú móvil */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+    }
+    
+    .nav-overlay.active {
+      display: block;
+    }
+    
+    /* Para escritorio */
+    @media (min-width: 992px) {
+      .hamburger {
+        display: none !important;
+      }
+      
+      nav {
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        box-shadow: none;
+        padding-top: 0;
+      }
+      
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        padding: 0;
+      }
+      
+      .nav-links li {
+        margin-bottom: 0;
+      }
+      
+      .nav-overlay {
+        display: none !important;
+      }
+    }
+    
+    @media (max-width: 991px) {
+      .header-buttons .btn-primary {
+        display: none;
+      }
+    }
+    
+    /* ===== HERO SECTION ===== */
+    .hero {
+      padding: 180px 0 100px;
+      background: linear-gradient(135deg, #ffebee 0%, #ffe0b2 100%);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="white" opacity="0.1" d="M0,0 L100,0 L100,100 Z"/></svg>');
+      background-size: cover;
+    }
+    
+    .hero-container {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-content {
+      flex: 1;
+    }
+    
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    
+    .hero-content h1 strong {
+      color: var(--primary);
+      font-family: 'Lobster', cursive;
+      font-size: 4rem;
+    }
+    
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+    
+    .hero-img {
+      max-width: 100%;
+      animation: float 3s ease-in-out infinite;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    @media (max-width: 768px) {
+      .hero {
+        padding: 140px 0 60px;
+      }
+      
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-content h1 strong {
+        font-size: 3rem;
+      }
+      
+      .hero-content p {
+        font-size: 1rem;
+      }
+      
+      .hero-image {
+        order: -1;
+      }
+      
+      .hero-img {
+        max-width: 80%;
+      }
+      
+      .hero-buttons {
+        justify-content: center;
+      }
+    }
+    
+    /* ===== LÍNEAS DE COLORES ===== */
+    .linea-colores {
+      display: flex;
+      height: 10px;
+    }
+    
+    .c1 { background: #d65353; flex: 1; }
+    .c2 { background: #dd8168; flex: 1; }
+    .c3 { background: #daa286; flex: 1; }
+    
+    .linea-banda {
+      background: #ee8484;
+      padding: 30px 0;
+      text-align: center;
+    }
+    
+    .titulo-lobster {
+      font-family: 'Lobster', cursive;
+      font-size: 2.5rem;
+      color: white;
+      margin: 0;
+    }
+    
+    @media (max-width: 768px) {
+      .titulo-lobster {
+        font-size: 2rem;
+      }
+    }
+    
+    /* ===== FEATURES ===== */
+    .features {
+      padding: 80px 0;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .feature {
+      text-align: center;
+      padding: 30px;
+      border-radius: var(--border-radius);
+      background: white;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+    
+    .feature:hover {
+      transform: translateY(-10px);
+    }
+    
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    
+    .feature-icon i {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+    
+    .feature h4 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+    
+    .feature p {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+    
+    /* ===== PRODUCTOS RESPONSIVE ===== */
+    .products {
+      padding: 80px 0;
+      background: var(--light-gray);
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .product-card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .product-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .product-card:hover .product-img img {
+      transform: scale(1.1);
+    }
+    
+    .product-info {
+      padding: 20px;
+    }
+    
+    .product-category {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      text-transform: capitalize;
+    }
+    
+    .product-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+    
+    .product-info p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      min-height: 60px;
+    }
+    
+    .product-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .price {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    .add-to-cart {
+      background: var(--primary);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .add-to-cart:hover {
+      background: var(--primary-dark);
+      transform: rotate(90deg);
+    }
+    
+    /* Selector de tamaño */
+    .size-selector {
+      margin: 10px 0;
+    }
+    
+    .size-selector h4 {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: var(--gray);
+    }
+    
+    .size-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    
+    .size-btn {
+      padding: 6px 12px;
+      border: 2px solid #ddd;
+      background: white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+      font-size: 0.9rem;
+      flex: 1;
+      min-width: 70px;
+      text-align: center;
+    }
+    
+    .size-btn.selected {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: white;
+    }
+    
+    .size-btn:hover:not(.selected) {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    
+    .view-more-btn {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: var(--transition);
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .view-more-btn:hover {
+      background: #f57c00;
+      transform: translateY(-3px);
+    }
+    
+    .play-music-btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: var(--transition);
+      margin-top: 10px;
+      margin-left: 5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .play-music-btn:hover {
+      background: #1DA851;
+      transform: translateY(-3px);
+    }
+    
+    .category-filter {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+    
+    .category-btn {
+      padding: 8px 20px;
+      border: 2px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+      border-radius: 30px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+    
+    .category-btn.active,
+    .category-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      
+      .category-filter {
+        gap: 5px;
+      }
+      
+      .category-btn {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+      }
+      
+      .play-music-btn {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+      }
+      
+      .size-buttons {
+        gap: 5px;
+      }
+      
+      .size-btn {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+        min-width: 60px;
+      }
+    }
+    
+    /* ===== TESTIMONIOS ===== */
+    .testimonials {
+      padding: 80px 0;
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .testimonial {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 30px;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+    
+    .testimonial:hover {
+      transform: translateY(-5px);
+    }
+    
+    .testimonial-content p {
+      font-style: italic;
+      color: var(--gray);
+      margin-bottom: 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .testimonial-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    
+    .testimonial-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .rating {
+      color: var(--secondary);
+      margin-top: 5px;
+    }
+    
+    /* ===== PASOS DE ORDEN ===== */
+    .order {
+      padding: 80px 0;
+      background: var(--light-gray);
+    }
+    
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+    
+    .step {
+      padding: 30px;
+      transition: var(--transition);
+    }
+    
+    .step:hover {
+      transform: translateY(-5px);
+    }
+    
+    .step-num {
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0 auto 20px;
+    }
+    
+    .step h4 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+    
+    /* ===== BOTÓN WHATSAPP ===== */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+      z-index: 999;
+      transition: var(--transition);
+    }
+    
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+    
+    .whatsapp-pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    
+    .whatsapp-tooltip {
+      position: absolute;
+      right: 70px;
+      background: #25D366;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      opacity: 0;
+      transition: var(--transition);
+      pointer-events: none;
+    }
+    
+    .whatsapp-btn:hover .whatsapp-tooltip {
+      opacity: 1;
+      right: 80px;
+    }
+    
+    @media (max-width: 768px) {
+      .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+      }
+      
+      .whatsapp-tooltip {
+        display: none;
+      }
+    }
+    
+    /* ===== FOOTER ===== */
+    footer {
+      background: #222;
+      color: white;
+      padding: 60px 0 30px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-logo img {
+      height: 60px;
+      filter: brightness(0) invert(1);
+      margin-bottom: 20px;
+      width: auto;
+    }
+    
+    .footer-col p {
+      color: #ccc;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+    
+    .footer-col h4 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: white;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--primary);
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #ccc;
+      transition: var(--transition);
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+    
+    /* Estilos específicos del footer */
+    .newsletter-form {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      font-family: 'Poppins', sans-serif;
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+    
+    .newsletter-form input::placeholder {
+      color: #aaa;
+    }
+    
+    .newsletter-form button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0 20px;
+      border-radius: 0 30px 30px 0;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .newsletter-form button:hover {
+      background: var(--primary-dark);
+    }
+    
+    .contact-info {
+      margin-top: 20px;
+    }
+    
+    .contact-info p {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    
+    .contact-info i {
+      margin-right: 10px;
+      color: var(--primary);
+      min-width: 20px;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #999;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      footer {
+        padding: 40px 0 20px;
+      }
+      
+      .footer-grid {
+        gap: 30px;
+      }
+    }
+    
+    /* ===== MODALES ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s;
+    }
+    
+    .modal-overlay.active {
+      display: flex;
+    }
+    
+    .modal {
+      background: white;
+      border-radius: var(--border-radius);
+      width: 100%;
+      max-width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: slideIn 0.3s;
+    }
+    
+    .profile-modal {
+      max-width: 800px;
+    }
+    
+    .contact-modal,
+    .about-modal,
+    .customize-modal {
+      max-width: 900px;
+    }
+    
+    /* Modal de música */
+    .music-modal {
+      max-width: 400px;
+      text-align: center;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideIn {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--gray);
+      z-index: 10;
+    }
+    
+    .modal-close:hover {
+      color: var(--dark);
+    }
+    
+    .modal-title {
+      padding: 20px 20px 10px;
+      margin: 0;
+      font-size: 1.5rem;
+      color: var(--dark);
+    }
+    
+    .modal-content {
+      padding: 0 20px 20px;
+    }
+    
+    /* ===== ESTILOS ESPECÍFICOS PARA MODALES ===== */
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    .contact-row {
+      display: flex;
+      gap: 25px;
+    }
+    
+    @media (max-width: 768px) {
+      .contact-row {
+        flex-direction: column;
+      }
+    }
+    
+    .contact-info-card {
+      background: var(--light);
+      border-radius: var(--border-radius);
+      padding: 25px;
+      box-shadow: var(--box-shadow);
+      flex: 1;
+    }
+    
+    .contact-info-card h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .contact-info-card h3 i {
+      font-size: 1.3rem;
+    }
+    
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .contact-detail:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .contact-detail i {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-top: 3px;
+      min-width: 20px;
+    }
+    
+    .map-container {
+      flex: 2;
+      background: var(--light);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      height: 400px;
+      position: relative;
+    }
+    
+    .map-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ffebee 0%, #ffe0b2 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark);
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .map-placeholder i {
+      font-size: 4rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    .social-contact {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-contact a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      font-size: 1.3rem;
+      transition: var(--transition);
+    }
+    
+    .social-contact a:hover {
+      background: var(--primary-dark);
+      transform: translateY(-5px);
+    }
+    
+    /* Mapa real */
+    .real-map {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    /* ===== ESTILOS PARA MODAL NOSOTROS ===== */
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    .founder-section {
+      background: var(--light);
+      border-radius: var(--border-radius);
+      padding: 25px;
+      box-shadow: var(--box-shadow);
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+    
+    @media (max-width: 768px) {
+      .founder-section {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    
+    .founder-image {
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid white;
+      box-shadow: var(--box-shadow);
+    }
+    
+    .founder-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .founder-info h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+    
+    .founder-title {
+      color: var(--secondary);
+      font-weight: 500;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+    
+    .founder-quote {
+      font-style: italic;
+      color: var(--gray);
+      padding-left: 20px;
+      border-left: 3px solid var(--primary);
+      margin: 15px 0;
+    }
+    
+    .values-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .value-item {
+      text-align: center;
+      padding: 20px;
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+    
+    .value-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .value-item i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    .value-item h4 {
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+    
+    .ice-cream-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 25px;
+    }
+    
+    .ice-cream-item {
+      text-align: center;
+      transition: var(--transition);
+    }
+    
+    .ice-cream-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .ice-cream-image {
+      width: 100%;
+      height: 120px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      margin-bottom: 10px;
+      box-shadow: var(--box-shadow);
+    }
+    
+    .ice-cream-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .ice-cream-item:hover .ice-cream-image img {
+      transform: scale(1.1);
+    }
+    
+    .ice-cream-name {
+      font-weight: 500;
+      color: var(--dark);
+      font-size: 0.9rem;
+    }
+    
+    /* ===== FORMULARIOS ===== */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .form-row .form-group {
+      flex: 1;
+    }
+    
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      margin: 15px 0;
+      gap: 10px;
+    }
+    
+    .form-checkbox input {
+      margin-top: 5px;
+    }
+    
+    .form-checkbox label {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: var(--gray);
+    }
+    
+    /* ===== PERFIL DE USUARIO ===== */
+    .profile-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .profile-avatar-container {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .profile-avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffe0b2, #ffebee);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      overflow: hidden;
+      border: 5px solid white;
+      box-shadow: var(--box-shadow);
+    }
+    
+    @media (max-width: 768px) {
+      .profile-avatar {
+        width: 120px;
+        height: 120px;
+      }
+    }
+    
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .profile-avatar i {
+      font-size: 60px;
+      color: var(--gray);
+    }
+    
+    .btn-change-photo {
+      background: var(--gray);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: block;
+      margin: 0 auto;
+      transition: var(--transition);
+    }
+    
+    .btn-change-photo:hover {
+      background: var(--dark);
+    }
+    
+    .profile-section {
+      background: white;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .profile-section h3 {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      color: var(--dark);
+      font-size: 1.2rem;
+    }
+    
+    .profile-section h3 i {
+      margin-right: 10px;
+      color: var(--primary);
+    }
+    
+    .profile-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    @media (max-width: 480px) {
+      .profile-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .profile-info-item {
+      background: var(--light);
+      padding: 15px;
+      border-radius: 8px;
+    }
+    
+    .profile-info-item label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-bottom: 5px;
+    }
+    
+    .profile-info-value {
+      font-weight: 500;
+      color: var(--dark);
+    }
+    
+    .btn-edit-profile, .btn-add-card, .btn-view-orders {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      width: 100%;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    
+    .btn-edit-profile:hover, .btn-add-card:hover, .btn-view-orders:hover {
+      background: var(--primary-dark);
+    }
+    
+    .btn-add-card {
+      background: var(--secondary);
+    }
+    
+    .btn-add-card:hover {
+      background: #f57c00;
+    }
+    
+    .btn-view-orders {
+      background: var(--gray);
+    }
+    
+    .btn-view-orders:hover {
+      background: #555;
+    }
+    
+    .profile-coupon {
+      background: linear-gradient(135deg, #ffe0b2, #ffebee);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .coupon-code-small {
+      background: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      border: 1px dashed var(--primary);
+    }
+    
+    .coupon-code-small strong {
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    
+    .coupon-expiry {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+    
+    .preferences {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .preference-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .preference-item input {
+      margin: 0;
+    }
+    
+    /* ===== ENTREGA ===== */
+    .delivery-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .delivery-option {
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+    
+    .delivery-option.selected {
+      border-color: var(--primary);
+      background: var(--light);
+    }
+    
+    .delivery-option i {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    
+    .delivery-option p {
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    
+    .delivery-option small {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    
+    .delivery-time {
+      margin-top: 10px;
+      padding: 8px;
+      background: var(--light-gray);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--gray);
+      justify-content: center;
+    }
+    
+    .delivery-time i {
+      color: var(--secondary);
+      font-size: 1rem;
+      margin: 0;
+    }
+    
+    /* ===== CONFIRMACIÓN CON TIEMPO ===== */
+    .order-confirmation {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .confirmation-icon {
+      font-size: 4rem;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+    
+    .delivery-estimation {
+      background: linear-gradient(135deg, #ffe0b2, #ffebee);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      margin: 20px 0;
+    }
+    
+    .time-estimate {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 15px 0;
+      justify-content: center;
+    }
+    
+    @media (max-width: 480px) {
+      .time-estimate {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+    }
+    
+    .time-icon {
+      background: var(--secondary);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    
+    .time-details {
+      flex: 1;
+    }
+    
+    .time-range {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--dark);
+    }
+    
+    .delivery-type {
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+    
+    .countdown {
+      background: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      display: inline-block;
+      font-weight: 500;
+      color: var(--secondary);
+    }
+    
+    .progress-bar {
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      margin: 20px 0 10px;
+      overflow: hidden;
+    }
+    
+    .progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--secondary), #ffb74d);
+      border-radius: 4px;
+      transition: width 1s ease;
+    }
+    
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-top: 5px;
+    }
+    
+    /* ===== NOTIFICACIONES ===== */
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--secondary);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 9999;
+      transform: translateX(150%);
+      transition: transform 0.3s ease;
+      max-width: 300px;
+    }
+    
+    .notification.show {
+      transform: translateX(0);
+    }
+    
+    .notification-error {
+      background: #f44336;
+    }
+    
+    .notification-warning {
+      background: var(--secondary);
+    }
+    
+    .notification-content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .notification-content i {
+      font-size: 1.2rem;
+    }
+    
+    /* ===== HISTORIAL DE PEDIDOS ===== */
+    .order-history-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .order-card {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 20px;
+      box-shadow: var(--box-shadow);
+      border-left: 5px solid var(--primary);
+      transition: var(--transition);
+    }
+    
+    .order-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .order-number {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    
+    .order-status {
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .order-status.delivered {
+      background: #4CAF50;
+      color: white;
+    }
+    
+    .order-status.pending {
+      background: #FFC107;
+      color: #333;
+    }
+    
+    .order-status.cancelled {
+      background: #F44336;
+      color: white;
+    }
+    
+    .order-items {
+      margin-bottom: 15px;
+    }
+    
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .order-item:last-child {
+      border-bottom: none;
+    }
+    
+    .order-item-name {
+      flex: 1;
+    }
+    
+    .order-item-quantity {
+      margin: 0 15px;
+    }
+    
+    .order-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      color: var(--dark);
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 2px solid var(--light);
+    }
+    
+    /* ===== PERSONALIZACIÓN DE HELADOS ===== */
+    .customize-options {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .option-section {
+      background: var(--light);
+      border-radius: var(--border-radius);
+      padding: 20px;
+    }
+    
+    .option-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    .option-title i {
+      font-size: 1.3rem;
+    }
+    
+    .select-all-btn {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: var(--transition);
+    }
+    
+    .select-all-btn:hover {
+      background: #f57c00;
+    }
+    
+    .flavor-selection {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .flavor-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .flavor-option.selected {
+      border-color: var(--primary);
+      background: white;
+      transform: scale(1.05);
+    }
+    
+    .flavor-color {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      transition: var(--transition);
+    }
+    
+    .flavor-option.selected .flavor-color {
+      transform: scale(1.1);
+    }
+    
+    .flavor-name {
+      font-weight: 500;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    
+    .option-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .option-btn {
+      padding: 10px 20px;
+      border: 2px solid #ddd;
+      background: white;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+    
+    .option-btn.selected {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: white;
+    }
+    
+    .option-btn:hover:not(.selected) {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    
+    .customize-summary {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 20px;
+      box-shadow: var(--box-shadow);
+      margin-top: 20px;
+    }
+    
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .summary-item:last-child {
+      border-bottom: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+    
+    .selected-flavors {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    
+    .selected-flavor {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 10px;
+      background: var(--light);
+      border-radius: 15px;
+      font-size: 0.9rem;
+    }
+    
+    .selected-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    
+    /* Selector de tamaño en personalización */
+    .size-selector-customize {
+      margin: 15px 0;
+    }
+    
+    .size-selector-customize h4 {
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+    
+    /* ===== UTILIDADES RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .desktop-only {
+        display: none !important;
+      }
+    }
+    
+    @media (min-width: 769px) {
+      .mobile-only {
+        display: none !important;
+      }
+    }
+    
+    .hidden {
+      display: none !important;
+    }
+    
+    .show {
+      display: block !important;
+    }
+    
+    .flex {
+      display: flex !important;
+    }
+
+    .video-container {
+      width: auto;
+      margin: 0 auto;
+      background-color: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    iframe {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 5px;
+    }
+    
+    .titulo1 {
+      text-align: center;
+      margin: 15px 0;
+      color: #333;
+    }
+    
+    /* Ajustes para diferentes tamaños de pantalla */
+    @media (max-width: 480px) {
+      .logo img {
+        height: 50px;
+      }
+    }
+    
+    @media (min-width: 1200px) {
+      .logo img {
+        height: 80px;
+      }
+    }
+    
+    /* Scroll suave mejorado */
+    section {
+      scroll-margin-top: 100px;
+    }
+    
+    /* Corrección para el formato del hero */
+    .hero-buttons {
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    /* Corrección para tamaño de botones en productos */
+    .product-card .size-buttons {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="logo.png" alt="Frío Fantasy"/>
+      </div>
+      
+      <!-- Menú Hamburguesa -->
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+      
+      <!-- Navegación -->
+      <nav id="navMenu">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link">Inicio</a></li>
+          <li><a href="#products" class="nav-link">Menú</a></li>
+          <li><a href="#testimonials" class="nav-link">Testimonios</a></li>
+          <li><a href="#order-steps" class="nav-link">Como Ordenar</a></li>
+          <li><a href="#contact" class="nav-link" id="contactLink">Contacto</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-buttons">
+        <div class="user-info" id="userInfo">
+          <div class="user-avatar-small" id="userAvatarSmall">
+            <img src="" alt="Foto de perfil" id="userAvatarImgSmall">
+            <i class="fas fa-user" id="userAvatarIconSmall"></i>
+          </div>
+          <span id="userName"></span>
+          <button id="logoutBtn" class="btn-logout">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+        
+        <a href="#products" class="btn btn-primary desktop-only">Comprar Ahora</a>
+        <button class="cart-btn" id="cartBtn">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="user-btn" id="userBtn">
+          <i class="fas fa-user"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Overlay para menú móvil -->
+    <div class="nav-overlay" id="navOverlay"></div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1>Siente el frío interior con<br>nuestro delicioso <strong>helado</strong>.</h1>
+        <p>Experimenta el mejor helado artesanal elaborado con ingredientes naturales y pasión. Nuestros sabores únicos te transportarán a un mundo de dulzura y frescura.</p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">Ordenar Ahora</a>
+          <a href="#features" class="btn btn-secondary">Conoce Beneficios</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="helado - 00.png" class="hero-img" alt="Helado Frío Fantasy">  
+      </div>
+    </div>
+  </section>
+
+  <!-- Líneas de colores -->
+  <div class="linea-colores">
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+  </div>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">Por Qué Elegir Frío Fantasy</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-truck"></i>
+          </div>
+          <h4>Envío Gratis</h4>
+          <p>Entrega gratuita en pedidos superiores a $30. Servicio rápido y confiable.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-gift"></i>
+          </div>
+          <h4>Embalaje Ecológico</h4>
+          <p>Embalaje 100% reciclable para proteger nuestro planeta.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-undo"></i>
+          </div>
+          <h4>Garantía de Satisfacción</h4>
+          <p>100% de garantía de devolución de dinero si no estás completamente satisfecho.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-shipping-fast"></i>
+          </div>
+          <h4>Entrega Rápida</h4>
+          <p>Recibe tu pedido en menos de 60 minutos en nuestra zona de cobertura.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Líneas de colores invertidas -->
+  <div class="linea-colores">
+    <div class="c3"></div>
+    <div class="c2"></div>
+    <div class="c1"></div>
+  </div>
+
+  <!-- Banda con título Lobster -->
+  <div class="linea-banda">
+    <div class="c9">
+      <h2 class="titulo-lobster">La Vida Sabe Mejor Con Frío Fantasy</h2>
+    </div>
+  </div>
+
+  <!-- Líneas de colores -->
+  <div class="linea-colores">
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+  </div>
+
+  <!-- Products Section -->
+  <section class="products" id="products">
+    <div class="container">
+      <h2 class="section-title">Nuestra Selección Premium</h2>
+      <div class="product-grid" id="productGrid">
+        <!-- Los productos se cargarán con JavaScript -->
+      </div>
+      <div class="category-filter">
+        <button class="category-btn active" data-category="all">Todos</button>
+        <button class="category-btn" data-category="cremosos">Cremosos</button>
+        <button class="category-btn" data-category="frutales">Frutales</button>
+        <button class="category-btn" data-category="especiales">Especiales</button>
+        <button class="category-btn" data-category="clasicos">Clásicos</button>
+        <button class="category-btn" data-category="personalizados">Personalizados</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"¡El mejor helado que he probado! La calidad es excepcional y los sabores son únicos. La entrega fue súper rápida y el embalaje mantuvo todo perfectamente congelado."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="cliente1.jpg" alt="Adela A. McNeill" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIzMCIgZmlsbD0iI2U5MWU2MyIvPjx0ZXh0IHg9IjMwIiB5PSIzNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+QU08L3RleHQ+PC9zdmc+'" />
+              </div>
+              <div>
+                <h4>Adela A. McNeill</h4>
+                <p>Bloguera de Comida</p>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"Sabores increíbles y entrega súper rápida. El chocolate con cayena es mi nuevo favorito: dulce con la cantidad justa de picante. ¡Servicio y calidad de 5 estrellas!"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="cliente2.jpg" alt="John Doe" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIzMCIgZmlsbD0iI2ZmOTgwMCIvPjx0ZXh0IHg9IjMwIiB5PSIzNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SkQ8L3RleHQ+PC9zdmc+'" />
+              </div>
+              <div>
+                <h4>John Doe</h4>
+                <p>Cliente Regular</p>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"Los helados personalizados son una experiencia única. Pude crear exactamente lo que quería y el resultado fue espectacular. ¡Volveré a pedir pronto!"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="cliente3.jpg" alt="María Sánchez" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIzMCIgZmlsbD0iIzI1RDM2NiIvPjx0ZXh0IHg9IjMwIiB5PSIzNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+TVM8L3RleHQ+PC9zdmc+'" />
+              </div>
+              <div>
+                <h4>María Sánchez</h4>
+                <p>Cliente Frecuente</p>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Steps Section -->
+  <section class="order" id="order-steps">
+    <div class="container">
+      <h2 class="section-title">Forma Sencilla de Ordenar Tu Helado</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h4>Selecciona Tus Sabores</h4>
+          <p>Explora nuestra selección única de sabores de helado artesanal.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h4>Personaliza Tu Helado</h4>
+          <p>Elige base, toppings y extras para crear tu combinación perfecta.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h4>Disfruta en Minutos</h4>
+          <p>Recibe tu creación en menos de 30 minutos o recoge en tienda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20más%20información" 
+     class="whatsapp-btn whatsapp-pulse" 
+     target="_blank"
+     aria-label="Contactar por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">¡Contáctanos!</span>
+  </a>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Frío Fantasy"/>
+          </div>
+          <p>El mejor helado artesanal de la ciudad. Elaborado con ingredientes naturales y pasión desde 2010.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/friofantasy/?igsh=aXRoMnVuaWRlanZm#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Enlaces Rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="#home" class="footer-nav-link">Inicio</a></li>
+            <li><a href="#features" class="footer-nav-link">Beneficios</a></li>
+            <li><a href="#products" class="footer-nav-link">Nuestro Menú</a></li>
+            <li><a href="#testimonials" class="footer-nav-link">Testimonios</a></li>
+            <li><a href="#order-steps" class="footer-nav-link">Cómo Ordenar</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Categorías</h4>
+          <ul class="footer-links">
+            <li><a href="#products" class="footer-category-link" data-category="cremosos">Helados Cremosos</a></li>
+            <li><a href="#products" class="footer-category-link" data-category="frutales">Helados Frutales</a></li>
+            <li><a href="#products" class="footer-category-link" data-category="especiales">Especialidades</a></li>
+            <li><a href="#products" class="footer-category-link" data-category="clasicos">Clásicos</a></li>
+            <li><a href="#products" class="footer-category-link" data-category="personalizados">Personalizados</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Boletín Informativo</h4>
+          <p>Suscríbete para recibir ofertas especiales y actualizaciones sobre nuevos sabores.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" id="newsletterEmail" placeholder="Tu Correo" required>
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+          <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> Calle del Helado 123, Ciudad Dulce</p>
+            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-envelope"></i> info@friofantasy.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Frío Fantasy. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== MODALES ===== -->
+
+  <!-- Modal Login/Register -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal">
+      <button class="modal-close" id="closeAuthModal">&times;</button>
+      <h2 class="modal-title" id="authModalTitle">Iniciar Sesión</h2>
+      <div class="modal-content">
+        <div class="auth-tabs" style="display: flex; margin-bottom: 20px; border-bottom: 2px solid var(--light-gray);">
+          <button class="auth-tab active" data-tab="login" style="flex: 1; padding: 10px; background: none; border: none; border-bottom: 3px solid var(--primary); font-weight: 500;">Iniciar Sesión</button>
+          <button class="auth-tab" data-tab="register" style="flex: 1; padding: 10px; background: none; border: none; border-bottom: 3px solid transparent; font-weight: 500;">Registrarse</button>
+        </div>
+        
+        <form id="loginForm" class="auth-form">
+          <div class="form-group">
+            <label for="loginEmail">Correo Electrónico</label>
+            <input type="email" id="loginEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Contraseña</label>
+            <input type="password" id="loginPassword" required>
+          </div>
+          
+          <div class="form-checkbox">
+            <input type="checkbox" id="loginSubscribe" checked>
+            <label for="loginSubscribe">Recibir cupones y ofertas especiales</label>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+          </button>
+          
+          <p style="background: var(--light); padding: 10px; border-radius: 5px; font-size: 0.9rem; margin-top: 15px; text-align: center;">
+            <i class="fas fa-gift"></i> ¡Usuarios registrados reciben un helado gratis en su cumpleaños!
+          </p>
+        </form>
+        
+        <form id="registerForm" class="auth-form" style="display: none;">
+          <div class="form-group">
+            <label for="registerName">Nombre Completo</label>
+            <input type="text" id="registerName" required>
+          </div>
+          <div class="form-group">
+            <label for="registerEmail">Correo Electrónico</label>
+            <input type="email" id="registerEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Contraseña</label>
+            <input type="password" id="registerPassword" required>
+          </div>
+          <div class="form-group">
+            <label for="registerPhone">Teléfono</label>
+            <input type="tel" id="registerPhone" required>
+          </div>
+          
+          <div class="form-checkbox">
+            <input type="checkbox" id="registerSubscribe" checked>
+            <label for="registerSubscribe">
+              <strong>¡Sí, quiero recibir ofertas exclusivas!</strong><br>
+              <small>• 10% de descuento en tu primer pedido</small><br>
+              <small>• Cupones mensuales</small><br>
+              <small>• Helado gratis en tu cumpleaños</small>
+            </label>
+          </div>
+          
+          <div class="email-confirmation-note" style="display: none; background: #e8f5e9; padding: 10px; border-radius: 5px; margin: 10px 0; text-align: center;">
+            <i class="fas fa-envelope"></i> <strong>¡Correo enviado!</strong> Revisa tu bandeja de entrada.
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="width: 100%;" id="registerSubmitBtn">
+            <i class="fas fa-user-plus"></i> Registrarse y Recibir Descuento
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal del perfil de usuario -->
+  <div class="modal-overlay" id="profileModal">
+    <div class="modal profile-modal">
+      <button class="modal-close" id="closeProfileModal">&times;</button>
+      <h2 class="modal-title">Mi Perfil</h2>
+      <div class="modal-content">
+        <div class="profile-header">
+          <div class="profile-avatar-container">
+            <div class="profile-avatar" id="profileAvatar">
+              <img src="" alt="Foto de perfil" id="profileAvatarImg">
+              <i class="fas fa-user" id="profileAvatarIcon"></i>
+            </div>
+            <button class="btn-change-photo" id="changePhotoBtn">
+              <i class="fas fa-camera"></i> Cambiar foto
+            </button>
+            <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+          </div>
+        </div>
+        
+        <div class="profile-section">
+          <h3><i class="fas fa-user-circle"></i> Información Personal</h3>
+          <div class="profile-info-grid">
+            <div class="profile-info-item">
+              <label>Nombre completo</label>
+              <div class="profile-info-value" id="profileFullName">-</div>
+            </div>
+            <div class="profile-info-item">
+              <label>Correo electrónico</label>
+              <div class="profile-info-value" id="profileEmail">-</div>
+            </div>
+            <div class="profile-info-item">
+              <label>Teléfono</label>
+              <div class="profile-info-value" id="profilePhone">-</div>
+            </div>
+            <div class="profile-info-item">
+              <label>Fecha de registro</label>
+              <div class="profile-info-value" id="profileJoinDate">-</div>
+            </div>
+          </div>
+          <button class="btn-edit-profile" id="editProfileBtn">
+            <i class="fas fa-edit"></i> Editar información
+          </button>
+        </div>
+        
+        <div class="profile-section">
+          <h3><i class="fas fa-credit-card"></i> Tarjetas Guardadas</h3>
+          <div id="profileCardsContainer">
+            <p style="color: #666; text-align: center;">No tienes tarjetas guardadas</p>
+          </div>
+          <button class="btn-add-card" id="addCardProfileBtn">
+            <i class="fas fa-plus"></i> Agregar tarjeta
+          </button>
+        </div>
+        
+        <div class="profile-section">
+          <h3><i class="fas fa-tag"></i> Mis Cupones y Descuentos</h3>
+          <div id="profileCouponsContainer">
+            <p style="color: #666; text-align: center;">No tienes cupones activos</p>
+          </div>
+        </div>
+        
+        <div class="profile-section">
+          <h3><i class="fas fa-history"></i> Historial de Pedidos</h3>
+          <div id="profileOrdersContainer">
+            <p style="color: #666; text-align: center;">No tienes pedidos anteriores</p>
+          </div>
+          <button class="btn-view-orders" id="viewOrdersBtn">
+            <i class="fas fa-list"></i> Ver todos mis pedidos
+          </button>
+        </div>
+        
+        <div class="profile-section">
+          <h3><i class="fas fa-cog"></i> Preferencias</h3>
+          <div class="preferences">
+            <div class="preference-item">
+              <input type="checkbox" id="prefNewsletter" checked>
+              <label for="prefNewsletter">Recibir ofertas y promociones</label>
+            </div>
+            <div class="preference-item">
+              <input type="checkbox" id="prefBirthday" checked>
+              <label for="prefBirthday">Recordatorio de cumpleaños</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para editar perfil -->
+  <div class="modal-overlay" id="editProfileModal">
+    <div class="modal">
+      <button class="modal-close" id="closeEditProfileModal">&times;</button>
+      <h2 class="modal-title">Editar Perfil</h2>
+      <div class="modal-content">
+        <form id="editProfileForm">
+          <div class="form-group">
+            <label for="editName">Nombre Completo *</label>
+            <input type="text" id="editName" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="editEmail">Correo Electrónico *</label>
+            <input type="email" id="editEmail" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="editPhone">Teléfono *</label>
+            <input type="tel" id="editPhone" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="editPassword">Nueva Contraseña (opcional)</label>
+            <input type="password" id="editPassword" placeholder="Dejar en blanco para no cambiar">
+          </div>
+          
+          <div class="form-group">
+            <label for="editConfirmPassword">Confirmar Nueva Contraseña</label>
+            <input type="password" id="editConfirmPassword">
+          </div>
+          
+          <div class="form-group">
+            <label for="editBirthday">Fecha de Nacimiento</label>
+            <input type="date" id="editBirthday">
+          </div>
+          
+          <div class="form-group">
+            <label for="editAddress">Dirección</label>
+            <textarea id="editAddress" rows="3" placeholder="Calle, número, colonia, ciudad"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+            <i class="fas fa-save"></i> Guardar Cambios
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para añadir al carrito -->
+  <div class="modal-overlay" id="addToCartModal">
+    <div class="modal">
+      <button class="modal-close" id="closeAddToCartModal">&times;</button>
+      <h2 class="modal-title" id="modalProductName">Añadir al Carrito</h2>
+      <div class="modal-content">
+        <div id="modalProductDetails"></div>
+        
+        <div class="size-selector" style="margin: 20px 0;">
+          <h4 style="margin-bottom: 10px;">Selecciona el tamaño:</h4>
+          <div class="size-buttons" id="modalSizeSelector">
+          </div>
+        </div>
+        
+        <div class="quantity-selector" style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 20px 0;">
+          <button class="quantity-btn" id="decreaseQuantity" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--primary); background: var(--light); font-size: 1.2rem; cursor: pointer;">-</button>
+          <span class="quantity-display" id="quantityDisplay" style="font-size: 1.5rem; font-weight: 600;">1</span>
+          <button class="quantity-btn" id="increaseQuantity" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--primary); background: var(--light); font-size: 1.2rem; cursor: pointer;">+</button>
+        </div>
+        <p class="price" id="modalTotalPrice" style="text-align: center; font-size: 1.5rem; font-weight: 600; color: var(--primary);">Total: $0.00</p>
+        
+        <button class="btn btn-primary" id="confirmAddToCart" style="width: 100%; margin-top: 20px;">
+          <i class="fas fa-cart-plus"></i> Añadir al Carrito
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal del carrito -->
+  <div class="modal-overlay" id="cartModal">
+    <div class="modal">
+      <button class="modal-close" id="closeCartModal">&times;</button>
+      <h2 class="modal-title">Tu Carrito de Compras</h2>
+      <div class="modal-content">
+        <div id="cartItemsContainer">
+          <p style="text-align: center; color: #666; padding: 30px;">Tu carrito está vacío</p>
+        </div>
+        
+        <div class="cart-total" style="display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 600; margin: 20px 0; padding: 15px; background: var(--light); border-radius: 5px;">
+          <span>Total:</span>
+          <span id="cartTotalPrice">$0.00</span>
+        </div>
+        <button class="btn btn-primary" id="checkoutBtn" style="width: 100%;">
+          Proceder al Pago
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de formulario de compra -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal">
+      <button class="modal-close" id="closeCheckoutModal">&times;</button>
+      <h2 class="modal-title">Finalizar Compra</h2>
+      <div class="modal-content">
+        <form id="checkoutForm">
+          <div class="form-group">
+            <label for="customerName">Nombre Completo *</label>
+            <input type="text" id="customerName" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="customerEmail">Correo Electrónico *</label>
+            <input type="email" id="customerEmail" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="customerPhone">Teléfono *</label>
+            <input type="tel" id="customerPhone" required>
+          </div>
+          
+          <div class="form-group">
+            <label>Método de Entrega *</label>
+            <div class="delivery-options">
+              <div class="delivery-option" data-type="delivery">
+                <i class="fas fa-truck"></i>
+                <p>Envío a Domicilio</p>
+                <small>$5.00</small>
+                <div class="delivery-time">
+                  <i class="fas fa-clock"></i>
+                  <span>45-60 minutos</span>
+                </div>
+              </div>
+              <div class="delivery-option selected" data-type="pickup">
+                <i class="fas fa-store"></i>
+                <p>Recoger en Tienda</p>
+                <small>Gratis</small>
+                <div class="delivery-time">
+                  <i class="fas fa-clock"></i>
+                  <span>20-30 minutos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="deliveryAddressGroup" style="display: none;">
+            <div class="form-group">
+              <label for="deliveryAddress">Dirección de Entrega *</label>
+              <textarea id="deliveryAddress" rows="3" placeholder="Ingresa tu dirección completa"></textarea>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="paymentMethod">Método de Pago *</label>
+            <select id="paymentMethod" required>
+              <option value="">Seleccionar</option>
+              <option value="cash">Efectivo al Recoger</option>
+              <option value="card">Tarjeta de Crédito/Débito</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            Confirmar Pedido
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de confirmación de pedido -->
+  <div class="modal-overlay" id="confirmationModal">
+    <div class="modal">
+      <div class="order-confirmation">
+        <div class="confirmation-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="modal-title">¡Pedido Confirmado!</h2>
+        <p>Tu pedido ha sido procesado exitosamente.</p>
+        
+        <div class="delivery-estimation">
+          <h3><i class="fas fa-shipping-fast"></i> Tiempo Estimado de Entrega</h3>
+          <div class="time-estimate">
+            <div class="time-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="time-details">
+              <div class="time-range" id="timeRange">20-30 minutos</div>
+              <div class="delivery-type" id="deliveryType">Recoger en tienda</div>
+              <div class="countdown" id="countdownTimer">
+                <span id="minutes">30</span> minutos restantes
+              </div>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" id="deliveryProgress" style="width: 0%"></div>
+          </div>
+          <div class="progress-labels">
+            <span>Orden recibida</span>
+            <span>En preparación</span>
+            <span>Listo</span>
+            <span>Entregado</span>
+          </div>
+        </div>
+        
+        <div class="qr-container">
+          <h3>Recoge tu pedido en tienda</h3>
+          <div class="qr-code" id="qrCodeDisplay" style="background: var(--light); padding: 20px; border-radius: 10px; margin: 20px 0;">
+            <div style="text-align: center;">
+              <i class="fas fa-qrcode" style="font-size: 3rem; margin-bottom: 10px; color: #666;"></i>
+              <div>Código de Recogida</div>
+            </div>
+          </div>
+          <div class="order-number" id="orderNumberDisplay" style="font-size: 1.2rem; font-weight: 600; color: var(--primary); margin: 10px 0;">
+            ORD  <span id="orderNumber">000001</span>
+          </div>
+        </div>
+        
+        <button class="btn btn-primary" id="closeConfirmationModal" style="margin-top: 20px;">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Contacto -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal contact-modal">
+      <button class="modal-close" id="closeContactModal">&times;</button>
+      <h2 class="modal-title">Contáctanos</h2>
+      <div class="modal-content">
+        <div class="contact-container">
+          <div class="contact-row">
+            <div class="contact-info-card">
+              <h3><i class="fas fa-map-marker-alt"></i> Nuestra Ubicación</h3>
+              <div class="contact-detail">
+                <i class="fas fa-store"></i>
+                <div>
+                  <strong>Frío Fantasy - Sucursal Central</strong><br>
+                  Calle del Helado 123, Ciudad Dulce<br>
+                  Plaza del Sabor, Local 45
+                </div>
+              </div>
+              <div class="contact-detail">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <strong>Horario de Atención</strong><br>
+                  Lunes a Viernes: 10:00 AM - 10:00 PM<br>
+                  Sábados y Domingos: 11:00 AM - 11:00 PM
+                </div>
+              </div>
+              <div class="contact-detail">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <strong>Teléfonos</strong><br>
+                  Reservaciones: (123) 456-7890<br>
+                  Delivery: (123) 456-7891<br>
+                  WhatsApp: +52 1 234 567 890
+                </div>
+              </div>
+            </div>
+            
+            <div class="map-container">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.888034220933!2d-99.1673236845939!3d19.427020746202397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35f5bd1563%3A0x6c366f0e2de02ff7!2sEl%20Morro%2C%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1642986783173!5m2!1ses-419!2smx" 
+                class="real-map"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+          
+          <div class="contact-row">
+            <div class="contact-info-card">
+              <h3><i class="fas fa-envelope"></i> Contáctanos Directamente</h3>
+              <div class="contact-detail">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <strong>Correo Electrónico</strong><br>
+                  info@friofantasy.com<br>
+                  reservaciones@friofantasy.com<br>
+                  quejas@sugerencias@friofantasy.com
+                </div>
+              </div>
+              <div class="contact-detail">
+                <i class="fas fa-headset"></i>
+                <div>
+                  <strong>Soporte y Atención</strong><br>
+                  Línea directa: 01-800-HELADOS<br>
+                  Soporte técnico: soporte@friofantasy.com<br>
+                  Respuesta en menos de 24 horas
+                </div>
+              </div>
+              <div class="social-contact">
+                <a href="https://www.instagram.com/friofantasy/?igsh=aXRoMnVuaWRlanZm#" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+            
+            <div class="contact-info-card">
+              <h3><i class="fas fa-shipping-fast"></i> Zonas de Delivery</h3>
+              <div class="contact-detail">
+                <i class="fas fa-truck"></i>
+                <div>
+                  <strong>Entrega Inmediata (30 min)</strong><br>
+                  • Centro Histórico<br>
+                  • Zona Rosa<br>
+                  • Colonia Delicias<br>
+                  • Parque Central
+                </div>
+              </div>
+              <div class="contact-detail">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <strong>Entrega Estándar (60 min)</strong><br>
+                  • Norte de la Ciudad<br>
+                  • Sur de la Ciudad<br>
+                  • Este de la Ciudad<br>
+                  • Oeste de la Ciudad
+                </div>
+              </div>
+              <div class="contact-detail">
+                <i class="fas fa-gift"></i>
+                <div>
+                  <strong>Servicios Especiales</strong><br>
+                  • Eventos y Fiestas<br>
+                  • Catering Empresarial<br>
+                  • Helados Personalizados<br>
+                  • Delivery Nocturno (hasta 2 AM)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Nosotros -->
+  <div class="modal-overlay" id="aboutModal">
+    <div class="modal about-modal">
+      <button class="modal-close" id="closeAboutModal">&times;</button>
+      <h2 class="modal-title">Nuestra Historia</h2>
+      <div class="modal-content">
+        <div class="about-container">
+          <div class="founder-section">
+            <div class="founder-image">
+              <img src="jefe.png" alt="Héctor Flores - Fundador">
+            </div>
+            <div class="founder-info">
+              <h3>Héctor Flores</h3>
+              <div class="founder-title">Fundador y Maestro Heladero</div>
+              <p>Con más de 15 años de experiencia en la creación de helados artesanales, Héctor comenzó Frío Fantasy en 2010 con una simple misión: crear los helados más deliciosos y creativos que jamás hayas probado.</p>
+              <div class="founder-quote">
+                "Mi pasión por los helados nació en la cocina de mi abuela. Cada sabor que creamos lleva un pedacito de ese amor y dedicación que ella me enseñó."
+              </div>
+              <p>Héctor estudió heladería artesanal en Italia y ha ganado múltiples premios internacionales por sus creaciones innovadoras.</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-card">
+            <h3><i class="fas fa-heart"></i> Nuestra Filosofía</h3>
+            <p>En Frío Fantasy, creemos que un buen helado puede cambiar tu día. Por eso nos dedicamos a:</p>
+            <div class="values-section">
+              <div class="value-item">
+                <i class="fas fa-leaf"></i>
+                <h4>Ingredientes Naturales</h4>
+                <p>Usamos solo ingredientes frescos y de la más alta calidad, sin conservantes artificiales.</p>
+              </div>
+              <div class="value-item">
+                <i class="fas fa-hand-sparkles"></i>
+                <h4>Elaboración Artesanal</h4>
+                <p>Cada lote es preparado a mano, con el cuidado y atención que solo un artesano puede dar.</p>
+              </div>
+              <div class="value-item">
+                <i class="fas fa-recycle"></i>
+                <h4>Sostenibilidad</h4>
+                <p>Nos comprometemos con el medio ambiente usando empaques 100% reciclables.</p>
+              </div>
+              <div class="value-item">
+                <i class="fas fa-users"></i>
+                <h4>Comunidad</h4>
+                <p>Apoyamos a productores locales y creamos empleos en nuestra comunidad.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-info-card">
+            <h3><i class="fas fa-ice-cream"></i> Nuestras Especialidades</h3>
+            <p>Descubre algunos de nuestros helados más populares, cada uno con su nombre único:</p>
+            <div class="ice-cream-gallery">
+              <div class="ice-cream-item">
+                <div class="ice-cream-image">
+                  <img src="helado - 1.png" alt="Sueño de Vainilla">
+                </div>
+                <div class="ice-cream-name">Sueño de Vainilla</div>
+              </div>
+              <div class="ice-cream-item">
+                <div class="ice-cream-image">
+                  <img src="helado - 2.png" alt="Pasión de Fresa">
+                </div>
+                <div class="ice-cream-name">Pasión de Fresa</div>
+              </div>
+              <div class="ice-cream-item">
+                <div class="ice-cream-image">
+                  <img src="helado - 3.png" alt="Éxtasis de Chocolate">
+                </div>
+                <div class="ice-cream-name">Éxtasis de Chocolate</div>
+              </div>
+              <div class="ice-cream-item">
+                <div class="ice-cream-image">
+                  <img src="helado - 4.png" alt="Fantasía Tropical">
+                </div>
+                <div class="ice-cream-name">Fantasía Tropical</div>
+              </div>
+              <div class="ice-cream-item">
+                <div class="ice-cream-image">
+                  <img src="helado - 5.png" alt="Delicia de Menta">
+                </div>
+                <div class="ice-cream-name">Delicia de Menta</div>
+              </div>
+              <div class="ice-cream-item">
+                <div class="ice-cream-image">
+                  <img src="helado - 6.png" alt="Milagro de Mango">
+                </div>
+                <div class="ice-cream-name">Milagro de Mango</div>
+              </div>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #666; text-align: center;">
+              <i class="fas fa-lightbulb"></i> ¿Tienes una idea para un nuevo sabor? ¡Cuéntanosla y podríamos crear tu helado personalizado!
+            </p>
+          </div>
+          
+          <div class="contact-info-card">
+            <h3><i class="fas fa-award"></i> Premios y Reconocimientos</h3>
+            <div class="contact-detail">
+              <i class="fas fa-trophy"></i>
+              <div>
+                <strong>2024 - Mejor Heladería Artesanal</strong><br>
+                Premio Nacional de Gastronomía
+              </div>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-medal"></i>
+              <div>
+                <strong>2023 - Innovación en Sabores</strong><br>
+                Concurso Internacional de Helados
+              </div>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-star"></i>
+              <div>
+                <strong>2022 - Excelencia en Servicio</strong><br>
+                Asociación de Restaurantes de la Ciudad
+              </div>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-leaf"></i>
+              <div>
+                <strong>2021 - Empresa Sostenible</strong><br>
+                Certificación Eco-Friendly
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de historial de pedidos -->
+  <div class="modal-overlay" id="orderHistoryModal">
+    <div class="modal">
+      <button class="modal-close" id="closeOrderHistoryModal">&times;</button>
+      <h2 class="modal-title">Mi Historial de Pedidos</h2>
+      <div class="modal-content">
+        <div class="order-history-container" id="orderHistoryContainer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de personalización de helados -->
+  <div class="modal-overlay" id="customizeModal">
+    <div class="modal customize-modal">
+      <button class="modal-close" id="closeCustomizeModal">&times;</button>
+      <h2 class="modal-title">Personaliza Tu Helado</h2>
+      <div class="modal-content">
+        <div class="customize-options">
+          
+          <div class="option-section">
+            <div class="option-title">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-ice-cream"></i>
+                <h3>1. Elige Tu Base</h3>
+              </div>
+            </div>
+            <div class="option-buttons" id="baseOptions">
+            </div>
+          </div>
+          
+          <div class="option-section">
+            <div class="option-title">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-palette"></i>
+                <h3>2. Selecciona Tus Sabores</h3>
+              </div>
+              <button class="select-all-btn" id="selectAllFlavors">Seleccionar Todos</button>
+            </div>
+            <div class="flavor-selection" id="flavorOptions">
+            </div>
+            <div style="margin-top: 10px; color: var(--gray); font-size: 0.9rem;">
+              <i class="fas fa-info-circle"></i> Puedes seleccionar hasta 5 sabores diferentes
+            </div>
+            <div class="selected-flavors" id="selectedFlavorsDisplay">
+            </div>
+          </div>
+          
+          <div class="option-section">
+            <div class="option-title">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-candy-cane"></i>
+                <h3>3. Agrega Toppings</h3>
+              </div>
+              <button class="select-all-btn" id="selectAllToppings">Seleccionar Todos</button>
+            </div>
+            <div class="option-buttons" id="toppingOptions">
+            </div>
+          </div>
+          
+          <div class="option-section">
+            <div class="option-title">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-plus-circle"></i>
+                <h3>4. Extras Especiales</h3>
+              </div>
+              <button class="select-all-btn" id="selectAllExtras">Seleccionar Todos</button>
+            </div>
+            <div class="option-buttons" id="extraOptions">
+            </div>
+          </div>
+          
+          <div class="option-section">
+            <div class="option-title">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-ruler-combined"></i>
+                <h3>5. Tamaño y Cantidad</h3>
+              </div>
+            </div>
+            <div class="size-selector-customize">
+              <h4>Selecciona el tamaño:</h4>
+              <div class="size-buttons" id="customizeSizeSelector">
+                <button class="size-btn" data-size="pequeno" data-price-multiplier="0.8" data-description="Perfecto para una persona">Pequeño (80%)</button>
+                <button class="size-btn selected" data-size="regular" data-price-multiplier="1" data-description="Tamaño estándar">Regular</button>
+                <button class="size-btn" data-size="grande" data-price-multiplier="1.3" data-description="Para compartir">Grande (+30%)</button>
+                <button class="size-btn" data-size="familiar" data-price-multiplier="1.8" data-description="Para toda la familia">Familiar (+80%)</button>
+              </div>
+              <div style="margin-top: 10px; color: var(--gray); font-size: 0.9rem; text-align: center;" id="sizeDescription">
+                Tamaño estándar
+              </div>
+            </div>
+            <div style="margin-top: 20px;">
+              <h4 style="margin-bottom: 10px;">Cantidad:</h4>
+              <div class="quantity-selector" style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 10px 0;">
+                <button class="quantity-btn" id="customizeDecreaseQuantity" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--primary); background: var(--light); font-size: 1.2rem; cursor: pointer;">-</button>
+                <span class="quantity-display" id="customizeQuantityDisplay" style="font-size: 1.5rem; font-weight: 600;">1</span>
+                <button class="quantity-btn" id="customizeIncreaseQuantity" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--primary); background: var(--light); font-size: 1.2rem; cursor: pointer;">+</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="customize-summary">
+            <h3>Resumen de Tu Helado Personalizado</h3>
+            <div class="summary-item">
+              <span>Base:</span>
+              <span id="summaryBase">-</span>
+            </div>
+            <div class="summary-item">
+              <span>Sabores:</span>
+              <span id="summaryFlavors">-</span>
+            </div>
+            <div class="summary-item">
+              <span>Toppings:</span>
+              <span id="summaryToppings">-</span>
+            </div>
+            <div class="summary-item">
+              <span>Extras:</span>
+              <span id="summaryExtras">-</span>
+            </div>
+            <div class="summary-item">
+              <span>Tamaño:</span>
+              <span id="summarySize">Regular</span>
+            </div>
+            <div class="summary-item">
+              <span>Cantidad:</span>
+              <span id="summaryQuantity">1</span>
+            </div>
+            <div class="summary-item" style="border-top: 2px solid var(--primary); padding-top: 15px;">
+              <span>Total:</span>
+              <span id="summaryTotal">$0.00</span>
+            </div>
+            
+            <button class="btn btn-primary" id="addCustomToCart" style="width: 100%; margin-top: 20px;">
+              <i class="fas fa-cart-plus"></i> Añadir al Carrito
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de música -->
+  <div class="modal-overlay" id="musicModal">
+    <div class="modal music-modal">
+      <button class="modal-close" id="closeMusicModal">&times;</button>
+      <h2 class="modal-title">Espresso - Sabrina Carpenter</h2>
+      <div class="modal-content">
+        <div style="text-align: center;">
+          <div class="feature-icon" style="margin: 0 auto 20px; background: linear-gradient(135deg, #ff6b8b, #ffb347);">
+            <i class="fas fa-music" style="color: white; font-size: 2rem;"></i>
+          </div>
+          
+          <p style="margin-bottom: 20px;">¡Disfruta del helado "Espresso Ice Cream" con la canción oficial de Sabrina Carpenter!</p>
+          
+          <div style="margin: 20px 0;">
+            <a href="https://youtu.be/eVli-tstM5E?list=RDeVli-tstM5E" 
+               target="_blank" 
+               class="btn btn-primary" 
+               style="display: inline-flex; align-items: center; gap: 8px;">
+              <i class="fab fa-youtube"></i> Ver en YouTube
+            </a>
+          </div>
+          
+          <div style="background: var(--light); padding: 15px; border-radius: var(--border-radius); margin: 20px 0; text-align: left; max-height: 200px; overflow-y: auto;">
+            <h4 style="margin-bottom: 10px; color: var(--primary);">Fragmento de la letra:</h4>
+            <p style="font-style: italic; color: var(--gray);">
+              Now he's thinkin' 'bout me every night, oh<br>
+              Is it that sweet? I guess so<br>
+              Say you can't sleep, baby, I know<br>
+              That's that me, espresso<br>
+              Move it up, down, left, right, oh<br>
+              Switch it up like Nintendo<br>
+              Say you can't sleep, baby, I know<br>
+              That's that me, espresso
+            </p>
+          </div>
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--light-gray);">
+            <div style="text-align: left;">
+              <div style="font-weight: 500; color: var(--dark);">Edición Especial</div>
+              <div style="font-size: 0.9rem; color: var(--gray);">Sabrina Carpenter</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ===== VARIABLES GLOBALES =====
+    let cart = JSON.parse(localStorage.getItem('frioFantasyCart')) || [];
+    let orderHistory = JSON.parse(localStorage.getItem('frioFantasyOrderHistory')) || [];
+    let ventasRegistradas = JSON.parse(localStorage.getItem('frioFantasyVentas')) || [];
+    
+    // Tamaños disponibles
+    const sizes = [
+      { name: 'Pequeño', multiplier: 0.8, description: 'Perfecto para una persona' },
+      { name: 'Regular', multiplier: 1, description: 'Tamaño estándar' },
+      { name: 'Grande', multiplier: 1.3, description: 'Para compartir' },
+      { name: 'Familiar', multiplier: 1.8, description: 'Para toda la familia' }
+    ];
+    
+    // ===== FUNCIÓN PARA REGISTRAR VENTA EN EL SISTEMA =====
+    function registrarVentaEnSistema(pedido) {
+      const nuevaVenta = {
+        id: Date.now(),
+        folio: `V-${Date.now()}`,
+        fecha: new Date().toLocaleString(),
+        cliente: pedido.clienteNombre,
+        rnc: pedido.clienteRnc || 'N/A',
+        email: pedido.clienteEmail,
+        telefono: pedido.clienteTelefono,
+        tipoEntrega: pedido.tipoEntrega,
+        direccion: pedido.direccion || 'Recoger en tienda',
+        metodoPago: pedido.metodoPago,
+        subtotal: pedido.subtotal,
+        itbis: pedido.itbis,
+        total: pedido.total,
+        items: pedido.items,
+        estado: 'completada',
+        timestamp: new Date().toISOString()
+      };
+      
+      ventasRegistradas.push(nuevaVenta);
+      localStorage.setItem('frioFantasyVentas', JSON.stringify(ventasRegistradas));
+      
+      console.log('✅ Venta registrada en el sistema:', nuevaVenta);
+      console.log('📊 Total de ventas registradas:', ventasRegistradas.length);
+      
+      return nuevaVenta;
+    }
+    
+    // ===== INICIALIZACIÓN =====
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM cargado');
+      
+      initNavigation();
+      initProducts();
+      initAuthSystem();
+      initProfileSystem();
+      initCartSystem();
+      initDeliverySystem();
+      initCustomizeSystem();
+      initModals();
+      initNewModals();
+      initMusicSystem();
+      initFooterLinks();
+      initSmoothScroll();
+      
+      loadOrderHistory();
+      
+      console.log('📦 Ventas registradas:', ventasRegistradas.length);
+      
+      setTimeout(() => {
+        showNotification('¡Bienvenido a Frío Fantasy!', 'success');
+      }, 1000);
+    });
+    
+    // ===== NAVEGACIÓN RESPONSIVE =====
+    function initNavigation() {
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('navMenu');
+      const navOverlay = document.getElementById('navOverlay');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navOverlay.classList.toggle('active');
+      });
+      
+      navOverlay.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        navOverlay.classList.remove('active');
+      });
+      
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 992) {
+            navMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+          }
+        });
+      });
+    }
+    
+    // ===== SCROLL SUAVE =====
+    function initSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          
+          if (href !== '#' && !this.classList.contains('category-btn') && 
+              !this.classList.contains('footer-category-link') && 
+              !this.classList.contains('footer-nav-link') &&
+              !this.classList.contains('auth-tab')) {
+            
+            e.preventDefault();
+            
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+              const headerHeight = document.querySelector('header').offsetHeight;
+              const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+              
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            }
+          }
+        });
+      });
+    }
+    
+    // ===== ENLACES DEL FOOTER =====
+    function initFooterLinks() {
+      document.querySelectorAll('.footer-nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const href = this.getAttribute('href');
+          const targetElement = document.querySelector(href);
+          
+          if (targetElement) {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      document.querySelectorAll('.footer-category-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const category = this.getAttribute('data-category');
+          
+          filterProductsByCategory(category);
+          
+          const productsSection = document.getElementById('products');
+          if (productsSection) {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const targetPosition = productsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      const newsletterForm = document.getElementById('newsletterForm');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const email = document.getElementById('newsletterEmail').value;
+          
+          if (email) {
+            showNotification('¡Gracias por suscribirte a nuestro boletín!', 'success');
+            this.reset();
+          }
+        });
+      }
+    }
+    
+    // ===== PRODUCTOS =====
+    function initProducts() {
+      const products = [
+        { id: 1, name: "Sueño de Vainilla", category: "clasicos", basePrice: 4.99, image: "helado - 1.png", description: "Vainilla Tahití con toques de caramelo y esencia de Madagascar" },
+        { id: 2, name: "Pasión de Fresa", category: "frutales", basePrice: 4.50, image: "helado - 2.png", description: "Fresas frescas cultivadas localmente con un toque de lima" },
+        { id: 3, name: "Éxtasis de Chocolate", category: "cremosos", basePrice: 5.25, image: "helado - 3.png", description: "Chocolate belga premium 70% cacao con trozos de chocolate" },
+        { id: 4, name: "Fantasía Tropical", category: "frutales", basePrice: 4.75, image: "helado - 4.png", description: "Mezcla tropical de mango, maracuyá y coco" },
+        { id: 5, name: "Delicia de Menta", category: "especiales", basePrice: 5.00, image: "helado - 5.png", description: "Menta refrescante con chips de chocolate oscuro" },
+        { id: 6, name: "Milagro de Mango", category: "frutales", basePrice: 4.65, image: "helado - 6.png", description: "Mango maduro Atulfo con un toque de chile en polvo" },
+        { id: 7, name: "Oreo Ice Cream", category: "cremosos", basePrice: 5.50, image: "helado - 7.png", description: "Crema de caramelo con cristales de sal marina" },
+        { id: 8, name: "Espresso Ice Cream", category: "especiales", basePrice: 5.75, image: "helado - 8.png", description: "Edición Especial Sabrina Carpenter", hasMusic: true },
+        { id: 9, name: "Helado de Almendras", category: "frutales", basePrice: 4.25, image: "helado - 10.png", description: "Helado de almendras dulces" },
+        { id: 10, name: "Chocolate Night Brownie", category: "cremosos", basePrice: 5.99, image: "helado - 9.png", description: "Super helado de brownie de chocolate" },
+        { id: 11, name: "Arándanos Silvestres", category: "frutales", basePrice: 4.80, image: "helado - 11.png", description: "Arándanos silvestres con reducción de frutos rojos" },
+        { id: 12, name: "Helado Personalizado", category: "personalizados", basePrice: 6.50, image: "helado - personalizado.png", description: "Crea tu propio helado con sabores, toppings y extras" }
+      ];
+      
+      const productGrid = document.getElementById('productGrid');
+      const categoryBtns = document.querySelectorAll('.category-btn');
+      
+      function renderProducts(category = 'all') {
+        productGrid.innerHTML = '';
+        
+        const filteredProducts = category === 'all' ? products : products.filter(p => p.category === category);
+        
+        filteredProducts.forEach(product => {
+          const productCard = document.createElement('div');
+          productCard.className = 'product-card';
+          
+          const isCustomizable = product.id === 12;
+          const hasMusic = product.hasMusic || false;
+          
+          productCard.innerHTML = `
+            <div class="product-img">
+              <img src="${product.image}" alt="${product.name}" onerror="this.src='https://images.unsplash.com/photo-1560008581-09826d1de69e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'">
+            </div>
+            <div class="product-info">
+              <span class="product-category">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</span>
+              <h3>${product.name}</h3>
+              <p>${product.description}</p>
+              <div class="size-selector">
+                <h4>Tamaño:</h4>
+                <div class="size-buttons" data-product-id="${product.id}">
+                  ${sizes.map((size, index) => `
+                    <button class="size-btn ${index === 1 ? 'selected' : ''}" 
+                            data-size="${size.name.toLowerCase()}" 
+                            data-multiplier="${size.multiplier}"
+                            data-product-id="${product.id}"
+                            data-description="${size.description}">
+                      ${size.name}
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+              <div class="product-price">
+                <span class="price" data-product-id="${product.id}">$${(product.basePrice * 1).toFixed(2)}</span>
+                <button class="add-to-cart" data-id="${product.id}">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div style="display: flex; gap: 5px; flex-wrap: wrap; margin-top: 10px;">
+                ${isCustomizable ? `<button class="view-more-btn" data-id="${product.id}"><i class="fas fa-sliders-h"></i> Personalizar</button>` : ''}
+                ${hasMusic ? `<button class="play-music-btn" data-id="${product.id}"><i class="fas fa-music"></i> Escuchar</button>` : ''}
+              </div>
+            </div>
+          `;
+          productGrid.appendChild(productCard);
+        });
+        
+        document.querySelectorAll('.size-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const productId = parseInt(this.dataset.productId);
+            const sizeMultiplier = parseFloat(this.dataset.multiplier);
+            
+            const sizeButtons = this.parentElement.querySelectorAll('.size-btn');
+            sizeButtons.forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
+            
+            const product = products.find(p => p.id === productId);
+            if (product) {
+              const priceElement = document.querySelector(`.price[data-product-id="${productId}"]`);
+              priceElement.textContent = `$${(product.basePrice * sizeMultiplier).toFixed(2)}`;
+            }
+          });
+        });
+        
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const productId = parseInt(this.dataset.id);
+            const product = products.find(p => p.id === productId);
+            if (product) {
+              if (productId === 12) {
+                openCustomizeModal();
+              } else {
+                openAddToCartModal(product);
+              }
+            }
+          });
+        });
+        
+        document.querySelectorAll('.view-more-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            openCustomizeModal();
+          });
+        });
+        
+        document.querySelectorAll('.play-music-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            openMusicModal();
+          });
+        });
+      }
+      
+      categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          categoryBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          const category = this.dataset.category;
+          renderProducts(category);
+        });
+      });
+      
+      window.filterProductsByCategory = function(category) {
+        categoryBtns.forEach(b => b.classList.remove('active'));
+        const btn = document.querySelector(`.category-btn[data-category="${category}"]`);
+        if (btn) {
+          btn.classList.add('active');
+          renderProducts(category);
+        }
+      };
+      
+      renderProducts();
+    }
+    
+    // ===== MODALES =====
+    function initNewModals() {
+      const contactLink = document.getElementById('contactLink');
+      const contactModal = document.getElementById('contactModal');
+      const closeContactModal = document.getElementById('closeContactModal');
+      
+      function openContactModal() { showModal(contactModal); }
+      
+      function openAboutModal() {
+        const aboutModal = document.getElementById('aboutModal');
+        showModal(aboutModal);
+      }
+      
+      if (contactLink) contactLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        openContactModal();
+      });
+      
+      if (closeContactModal) closeContactModal.addEventListener('click', () => hideModal(contactModal));
+      
+      contactModal.addEventListener('click', (e) => {
+        if (e.target === contactModal) hideModal(contactModal);
+      });
+      
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (contactModal.classList.contains('active')) hideModal(contactModal);
+        }
+      });
+      
+      const navLinks = document.querySelector('.nav-links');
+      const aboutLi = document.createElement('li');
+      aboutLi.innerHTML = '<a href="#" class="nav-link" id="aboutLink">Nosotros</a>';
+      navLinks.insertBefore(aboutLi, navLinks.children[1]);
+      
+      document.getElementById('aboutLink').addEventListener('click', (e) => {
+        e.preventDefault();
+        openAboutModal();
+      });
+    }
+    
+    function initMusicSystem() {
+      const musicModal = document.getElementById('musicModal');
+      const closeMusicModal = document.getElementById('closeMusicModal');
+      
+      window.openMusicModal = function() { showModal(musicModal); };
+      
+      closeMusicModal.addEventListener('click', () => hideModal(musicModal));
+      
+      musicModal.addEventListener('click', (e) => {
+        if (e.target === musicModal) hideModal(musicModal);
+      });
+    }
+    
+    // ===== AUTENTICACIÓN =====
+    function initAuthSystem() {
+      const authModal = document.getElementById('authModal');
+      const closeAuthModal = document.getElementById('closeAuthModal');
+      const authTabs = document.querySelectorAll('.auth-tab');
+      const loginForm = document.getElementById('loginForm');
+      const registerForm = document.getElementById('registerForm');
+      const userBtn = document.getElementById('userBtn');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const userInfo = document.getElementById('userInfo');
+      const userName = document.getElementById('userName');
+      
+      let currentUser = JSON.parse(localStorage.getItem('frioFantasyCurrentUser')) || null;
+      
+      function updateAuthUI() {
+        if (currentUser) {
+          userInfo.style.display = 'flex';
+          userName.textContent = currentUser.name.split(' ')[0];
+          userBtn.innerHTML = '<i class="fas fa-user-check"></i>';
+        } else {
+          userInfo.style.display = 'none';
+          userBtn.innerHTML = '<i class="fas fa-user"></i>';
+        }
+      }
+      
+      authTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          authTabs.forEach(t => t.style.borderBottom = '3px solid transparent');
+          this.style.borderBottom = '3px solid var(--primary)';
+          
+          const tabName = this.dataset.tab;
+          document.getElementById('authModalTitle').textContent = tabName === 'login' ? 'Iniciar Sesión' : 'Registrarse';
+          loginForm.style.display = tabName === 'login' ? 'block' : 'none';
+          registerForm.style.display = tabName === 'register' ? 'block' : 'none';
+        });
+      });
+      
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        
+        const users = JSON.parse(localStorage.getItem('frioFantasyUsers')) || [];
+        const user = users.find(u => u.email === email && u.password === password);
+        
+        if (user) {
+          currentUser = user;
+          localStorage.setItem('frioFantasyCurrentUser', JSON.stringify(user));
+          updateAuthUI();
+          hideModal(authModal);
+          showNotification(`¡Bienvenido de nuevo, ${user.name}!`, 'success');
+          loginForm.reset();
+          
+          if (window.profileSystem) {
+            window.profileSystem.currentUser = user;
+            window.profileSystem.updateAvatar();
+            window.profileSystem.loadProfileData();
+          }
+        } else {
+          showNotification('Correo o contraseña incorrectos', 'error');
+        }
+      });
+      
+      registerForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('registerName').value;
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+        const phone = document.getElementById('registerPhone').value;
+        const wantsOffers = document.getElementById('registerSubscribe').checked;
+        
+        const users = JSON.parse(localStorage.getItem('frioFantasyUsers')) || [];
+        
+        if (users.some(u => u.email === email)) {
+          showNotification('Este correo ya está registrado', 'error');
+          return;
+        }
+        
+        const newUser = {
+          id: Date.now(),
+          name, email, password, phone,
+          joinDate: new Date().toLocaleDateString(),
+          cart: [], orders: [], cards: [],
+          coupons: [{ code: 'BIENVENIDO10', description: '10% de descuento en tu primera compra', expiry: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString(), discount: 10 }],
+          preferences: { newsletter: wantsOffers, birthday: true }
+        };
+        
+        users.push(newUser);
+        localStorage.setItem('frioFantasyUsers', JSON.stringify(users));
+        
+        currentUser = newUser;
+        localStorage.setItem('frioFantasyCurrentUser', JSON.stringify(newUser));
+        updateAuthUI();
+        
+        const confirmNote = registerForm.querySelector('.email-confirmation-note');
+        confirmNote.style.display = 'block';
+        
+        setTimeout(() => {
+          hideModal(authModal);
+          showNotification(`¡Bienvenido a Frío Fantasy, ${name}!`, 'success');
+          registerForm.reset();
+          confirmNote.style.display = 'none';
+          
+          if (window.profileSystem) {
+            window.profileSystem.currentUser = newUser;
+            window.profileSystem.loadProfileData();
+          }
+        }, 2000);
+      });
+      
+      userBtn.addEventListener('click', function() {
+        if (currentUser) {
+          if (window.profileSystem) window.profileSystem.openProfile();
+        } else {
+          showModal(authModal);
+        }
+      });
+      
+      logoutBtn.addEventListener('click', function() {
+        if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
+          currentUser = null;
+          localStorage.removeItem('frioFantasyCurrentUser');
+          updateAuthUI();
+          showNotification('Sesión cerrada correctamente', 'success');
+          if (window.profileSystem) window.profileSystem.currentUser = null;
+        }
+      });
+      
+      closeAuthModal.addEventListener('click', () => hideModal(authModal));
+      
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && authModal.classList.contains('active')) hideModal(authModal);
+      });
+      
+      updateAuthUI();
+      
+      window.authSystem = { currentUser, updateAuthUI };
+    }
+    
+    // ===== PERFIL =====
+    function initProfileSystem() {
+      const profileModal = document.getElementById('profileModal');
+      const editProfileModal = document.getElementById('editProfileModal');
+      const orderHistoryModal = document.getElementById('orderHistoryModal');
+      const photoUpload = document.getElementById('photoUpload');
+      const changePhotoBtn = document.getElementById('changePhotoBtn');
+      const editProfileBtn = document.getElementById('editProfileBtn');
+      const editProfileForm = document.getElementById('editProfileForm');
+      const closeEditProfileModal = document.getElementById('closeEditProfileModal');
+      const closeOrderHistoryModal = document.getElementById('closeOrderHistoryModal');
+      const addCardProfileBtn = document.getElementById('addCardProfileBtn');
+      const closeProfileModal = document.getElementById('closeProfileModal');
+      const viewOrdersBtn = document.getElementById('viewOrdersBtn');
+      
+      let currentUser = JSON.parse(localStorage.getItem('frioFantasyCurrentUser')) || null;
+      
+      window.profileSystem = {
+        currentUser,
+        openProfile: function() { if (this.currentUser) { this.loadProfileData(); showModal(profileModal); } },
+        loadProfileData: function() {
+          if (!this.currentUser) return;
+          document.getElementById('profileFullName').textContent = this.currentUser.name || '-';
+          document.getElementById('profileEmail').textContent = this.currentUser.email || '-';
+          document.getElementById('profilePhone').textContent = this.currentUser.phone || '-';
+          document.getElementById('profileJoinDate').textContent = this.currentUser.joinDate || '-';
+          this.updateAvatar();
+          this.loadCoupons();
+          this.loadCards();
+          this.loadRecentOrders();
+          this.loadPreferences();
+        },
+        updateAvatar: function() {
+          const avatarImg = document.getElementById('profileAvatarImg');
+          const avatarIcon = document.getElementById('profileAvatarIcon');
+          const smallAvatarImg = document.getElementById('userAvatarImgSmall');
+          const smallAvatarIcon = document.getElementById('userAvatarIconSmall');
+          
+          if (this.currentUser && this.currentUser.avatar) {
+            avatarImg.src = this.currentUser.avatar; avatarImg.style.display = 'block'; avatarIcon.style.display = 'none';
+            smallAvatarImg.src = this.currentUser.avatar; smallAvatarImg.style.display = 'block'; smallAvatarIcon.style.display = 'none';
+          } else {
+            avatarImg.style.display = 'none'; avatarIcon.style.display = 'block';
+            smallAvatarImg.style.display = 'none'; smallAvatarIcon.style.display = 'block';
+          }
+        },
+        loadCoupons: function() {
+          const container = document.getElementById('profileCouponsContainer');
+          const coupons = this.currentUser.coupons || [];
+          if (coupons.length === 0) { container.innerHTML = '<p style="color: #666; text-align: center;">No tienes cupones activos</p>'; return; }
+          container.innerHTML = coupons.map(coupon => `<div class="profile-coupon"><div><div class="coupon-code-small"><strong>${coupon.code}</strong></div><div style="font-size: 0.9rem; margin-top: 5px;">${coupon.description}</div></div><div class="coupon-expiry">Válido hasta: ${coupon.expiry}</div></div>`).join('');
+        },
+        loadCards: function() {
+          const container = document.getElementById('profileCardsContainer');
+          const cards = this.currentUser.cards || [];
+          if (cards.length === 0) { container.innerHTML = '<p style="color: #666; text-align: center;">No tienes tarjetas guardadas</p>'; return; }
+          container.innerHTML = cards.map(card => `<div class="profile-coupon" style="margin-bottom: 10px;"><div><div class="coupon-code-small"><strong>${card.type}</strong></div><div style="font-size: 0.9rem; margin-top: 5px;">Terminada en ${card.last4}</div><div style="font-size: 0.8rem; color: #666;">Vence: ${card.expiry}</div></div></div>`).join('');
+        },
+        loadRecentOrders: function() {
+          const container = document.getElementById('profileOrdersContainer');
+          const userOrders = orderHistory.filter(order => order.userId === this.currentUser.id);
+          if (userOrders.length === 0) { container.innerHTML = '<p style="color: #666; text-align: center;">No tienes pedidos anteriores</p>'; return; }
+          const recentOrders = userOrders.slice(0, 3);
+          container.innerHTML = recentOrders.map(order => `<div class="order-card" style="margin-bottom: 10px;"><div class="order-header"><div class="order-number">${order.orderNumber}</div><div class="order-status ${order.status}">${order.status === 'delivered' ? 'Entregado' : order.status === 'pending' ? 'Pendiente' : 'Cancelado'}</div></div><div class="order-items">${order.items.slice(0, 2).map(item => `<div class="order-item"><div class="order-item-name">${item.name}</div><div class="order-item-quantity">x${item.quantity}</div><div class="order-item-price">$${item.total.toFixed(2)}</div></div>`).join('')}${order.items.length > 2 ? `<div style="text-align: center; color: #666; font-size: 0.9rem;">+${order.items.length - 2} más</div>` : ''}</div><div class="order-total"><span>Total</span><span>$${order.total.toFixed(2)}</span></div></div>`).join('');
+        },
+        loadOrderHistory: function() {
+          const container = document.getElementById('orderHistoryContainer');
+          const userOrders = orderHistory.filter(order => order.userId === this.currentUser.id);
+          if (userOrders.length === 0) { container.innerHTML = '<p style="color: #666; text-align: center;">No tienes pedidos anteriores</p>'; return; }
+          container.innerHTML = userOrders.map(order => `<div class="order-card"><div class="order-header"><div class="order-number">${order.orderNumber}</div><div class="order-status ${order.status}">${order.status === 'delivered' ? 'Entregado' : order.status === 'pending' ? 'Pendiente' : 'Cancelado'}</div></div><div class="order-items">${order.items.map(item => `<div class="order-item"><div class="order-item-name">${item.name}</div><div class="order-item-quantity">x${item.quantity}</div><div class="order-item-price">$${item.total.toFixed(2)}</div></div>`).join('')}</div><div class="order-total"><span>Total</span><span>$${order.total.toFixed(2)}</span></div><div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.9rem; color: #666;"><span>Fecha: ${order.date}</span><span>${order.deliveryType === 'delivery' ? 'Envío a domicilio' : 'Recoger en tienda'}</span></div></div>`).join('');
+        },
+        loadPreferences: function() {
+          const prefs = this.currentUser.preferences || {};
+          document.getElementById('prefNewsletter').checked = prefs.newsletter !== false;
+          document.getElementById('prefBirthday').checked = prefs.birthday !== false;
+        },
+        saveUserData: function() {
+          const users = JSON.parse(localStorage.getItem('frioFantasyUsers')) || [];
+          const userIndex = users.findIndex(u => u.id === this.currentUser.id);
+          if (userIndex !== -1) {
+            users[userIndex] = this.currentUser;
+            localStorage.setItem('frioFantasyUsers', JSON.stringify(users));
+            localStorage.setItem('frioFantasyCurrentUser', JSON.stringify(this.currentUser));
+          }
+        }
+      };
+      
+      changePhotoBtn.addEventListener('click', () => photoUpload.click());
+      
+      photoUpload.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        if (!file.type.match('image.*')) { showNotification('Por favor selecciona una imagen válida', 'error'); return; }
+        if (file.size > 5 * 1024 * 1024) { showNotification('La imagen es muy grande (máximo 5MB)', 'error'); return; }
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          window.profileSystem.currentUser.avatar = e.target.result;
+          window.profileSystem.saveUserData();
+          window.profileSystem.updateAvatar();
+          showNotification('Foto de perfil actualizada', 'success');
+        };
+        reader.readAsDataURL(file);
+      });
+      
+      editProfileBtn.addEventListener('click', function() {
+        if (!window.profileSystem.currentUser) return;
+        const user = window.profileSystem.currentUser;
+        document.getElementById('editName').value = user.name || '';
+        document.getElementById('editEmail').value = user.email || '';
+        document.getElementById('editPhone').value = user.phone || '';
+        document.getElementById('editBirthday').value = user.birthday || '';
+        document.getElementById('editAddress').value = user.address || '';
+        document.getElementById('editPassword').value = '';
+        document.getElementById('editConfirmPassword').value = '';
+        hideModal(profileModal);
+        showModal(editProfileModal);
+      });
+      
+      editProfileForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('editName').value;
+        const email = document.getElementById('editEmail').value;
+        const phone = document.getElementById('editPhone').value;
+        const password = document.getElementById('editPassword').value;
+        const confirmPassword = document.getElementById('editConfirmPassword').value;
+        const birthday = document.getElementById('editBirthday').value;
+        const address = document.getElementById('editAddress').value;
+        
+        if (password && password !== confirmPassword) { showNotification('Las contraseñas no coinciden', 'error'); return; }
+        
+        window.profileSystem.currentUser.name = name;
+        window.profileSystem.currentUser.email = email;
+        window.profileSystem.currentUser.phone = phone;
+        if (password) window.profileSystem.currentUser.password = password;
+        if (birthday) window.profileSystem.currentUser.birthday = birthday;
+        if (address) window.profileSystem.currentUser.address = address;
+        
+        window.profileSystem.saveUserData();
+        
+        if (window.authSystem) {
+          window.authSystem.currentUser = window.profileSystem.currentUser;
+          window.authSystem.updateAuthUI();
+        }
+        
+        hideModal(editProfileModal);
+        showModal(profileModal);
+        window.profileSystem.loadProfileData();
+        showNotification('Perfil actualizado correctamente', 'success');
+      });
+      
+      closeEditProfileModal.addEventListener('click', () => { hideModal(editProfileModal); showModal(profileModal); });
+      
+      viewOrdersBtn.addEventListener('click', function() {
+        if (!window.profileSystem.currentUser) return;
+        window.profileSystem.loadOrderHistory();
+        hideModal(profileModal);
+        showModal(orderHistoryModal);
+      });
+      
+      closeOrderHistoryModal.addEventListener('click', () => { hideModal(orderHistoryModal); showModal(profileModal); });
+      closeProfileModal.addEventListener('click', () => hideModal(profileModal));
+      
+      addCardProfileBtn.addEventListener('click', function() {
+        const cardModal = document.createElement('div');
+        cardModal.className = 'modal-overlay active';
+        cardModal.innerHTML = `<div class="modal"><button class="modal-close" id="closeCardModal">&times;</button><h2 class="modal-title">Agregar Tarjeta</h2><div class="modal-content"><form id="cardForm"><div class="form-group"><label for="cardName">Nombre en la Tarjeta *</label><input type="text" id="cardName" required></div><div class="form-group"><label for="cardNumber">Número de Tarjeta *</label><input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required></div><div class="form-row"><div class="form-group"><label for="cardExpiry">Fecha de Vencimiento *</label><input type="text" id="cardExpiry" placeholder="MM/AA" required></div><div class="form-group"><label for="cardCVC">CVC *</label><input type="text" id="cardCVC" placeholder="123" required></div></div><div class="form-group"><label for="cardType">Tipo de Tarjeta *</label><select id="cardType" required><option value="">Seleccionar</option><option value="Visa">Visa</option><option value="Mastercard">Mastercard</option><option value="American Express">American Express</option></select></div><button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-credit-card"></i> Agregar Tarjeta</button></form></div></div>`;
+        document.body.appendChild(cardModal);
+        
+        document.getElementById('cardForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          const cardName = document.getElementById('cardName').value;
+          const cardNumber = document.getElementById('cardNumber').value;
+          const cardExpiry = document.getElementById('cardExpiry').value;
+          const cardCVC = document.getElementById('cardCVC').value;
+          const cardType = document.getElementById('cardType').value;
+          
+          if (!cardName || !cardNumber || !cardExpiry || !cardCVC || !cardType) { showNotification('Por favor completa todos los campos', 'error'); return; }
+          
+          const last4 = cardNumber.slice(-4);
+          
+          if (!window.profileSystem.currentUser.cards) window.profileSystem.currentUser.cards = [];
+          window.profileSystem.currentUser.cards.push({ name: cardName, last4: last4, expiry: cardExpiry, type: cardType });
+          window.profileSystem.saveUserData();
+          window.profileSystem.loadCards();
+          document.body.removeChild(cardModal);
+          showNotification('Tarjeta agregada correctamente', 'success');
+        });
+        
+        document.getElementById('closeCardModal').addEventListener('click', () => document.body.removeChild(cardModal));
+        cardModal.addEventListener('click', function(e) { if (e.target === cardModal) document.body.removeChild(cardModal); });
+      });
+    }
+    
+    // ===== CARGAR HISTORIAL =====
+    function loadOrderHistory() {
+      if (orderHistory.length === 0) {
+        const sampleOrders = [
+          { id: 1, userId: 1, orderNumber: 'ORD-2025001', date: '15/03/2025', status: 'delivered', deliveryType: 'delivery', total: 25.50, items: [{ name: 'Sueño de Vainilla', quantity: 2, total: 9.98 }, { name: 'Éxtasis de Chocolate', quantity: 1, total: 5.25 }, { name: 'Helado Personalizado', quantity: 1, total: 8.50 }] },
+          { id: 2, userId: 1, orderNumber: 'ORD-2025002', date: '10/03/2025', status: 'delivered', deliveryType: 'pickup', total: 15.75, items: [{ name: 'Pasión de Fresa', quantity: 3, total: 13.50 }, { name: 'Caramelo Salado', quantity: 1, total: 5.50 }] }
+        ];
+        orderHistory = sampleOrders;
+        localStorage.setItem('frioFantasyOrderHistory', JSON.stringify(orderHistory));
+      }
+    }
+    
+    // ===== CARRITO =====
+    function initCartSystem() {
+      const cartBtn = document.getElementById('cartBtn');
+      const cartModal = document.getElementById('cartModal');
+      const cartCount = document.getElementById('cartCount');
+      const closeCartModal = document.getElementById('closeCartModal');
+      const checkoutBtn = document.getElementById('checkoutBtn');
+      
+      function updateCartCount() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCount.textContent = totalItems;
+        localStorage.setItem('frioFantasyCart', JSON.stringify(cart));
+      }
+      
+      function renderCartItems() {
+        const container = document.getElementById('cartItemsContainer');
+        const totalElement = document.getElementById('cartTotalPrice');
+        
+        if (cart.length === 0) {
+          container.innerHTML = '<p style="text-align: center; color: #666; padding: 30px;">Tu carrito está vacío</p>';
+          totalElement.textContent = '$0.00';
+          return;
+        }
+        
+        let total = 0;
+        container.innerHTML = '';
+        
+        cart.forEach((item, index) => {
+          const itemTotal = item.price * item.quantity;
+          total += itemTotal;
+          
+          const cartItem = document.createElement('div');
+          cartItem.className = 'cart-item';
+          cartItem.style.cssText = `display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee;`;
+          cartItem.innerHTML = `
+            <div>
+              <h4 style="margin: 0 0 5px 0;">${item.name}</h4>
+              ${item.size ? `<div style="font-size: 0.8rem; color: #666;">Tamaño: ${item.size}</div>` : ''}
+              ${item.customization ? `<div style="font-size: 0.8rem; color: #666;">${item.customization}</div>` : ''}
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <button class="decrease-qty" data-index="${index}" style="width: 25px; height: 25px; border-radius: 50%; border: 1px solid #ddd; background: var(--light);">-</button>
+                <span>${item.quantity}</span>
+                <button class="increase-qty" data-index="${index}" style="width: 25px; height: 25px; border-radius: 50%; border: 1px solid #ddd; background: var(--light);">+</button>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-weight: 600; color: var(--primary);">$${itemTotal.toFixed(2)}</div>
+              <button class="remove-item" data-index="${index}" style="background: none; border: none; color: var(--primary); cursor: pointer; font-size: 0.9rem;"><i class="fas fa-trash"></i> Eliminar</button>
+            </div>
+          `;
+          container.appendChild(cartItem);
+        });
+        
+        totalElement.textContent = `$${total.toFixed(2)}`;
+        
+        document.querySelectorAll('.decrease-qty').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const index = parseInt(this.dataset.index);
+            if (cart[index].quantity > 1) cart[index].quantity--;
+            else cart.splice(index, 1);
+            renderCartItems();
+            updateCartCount();
+          });
+        });
+        
+        document.querySelectorAll('.increase-qty').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const index = parseInt(this.dataset.index);
+            cart[index].quantity++;
+            renderCartItems();
+            updateCartCount();
+          });
+        });
+        
+        document.querySelectorAll('.remove-item').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const index = parseInt(this.dataset.index);
+            cart.splice(index, 1);
+            renderCartItems();
+            updateCartCount();
+          });
+        });
+      }
+      
+      window.openAddToCartModal = function(product) {
+        const modal = document.getElementById('addToCartModal');
+        const productName = document.getElementById('modalProductName');
+        const productDetails = document.getElementById('modalProductDetails');
+        const quantityDisplay = document.getElementById('quantityDisplay');
+        const totalPrice = document.getElementById('modalTotalPrice');
+        const decreaseBtn = document.getElementById('decreaseQuantity');
+        const increaseBtn = document.getElementById('increaseQuantity');
+        const confirmBtn = document.getElementById('confirmAddToCart');
+        const sizeSelector = document.getElementById('modalSizeSelector');
+        
+        let quantity = 1;
+        let selectedSize = sizes[1];
+        let currentPrice = product.basePrice * selectedSize.multiplier;
+        
+        productName.textContent = product.name;
+        productDetails.innerHTML = `<div style="text-align: center;"><p style="color: #666; margin-bottom: 10px;">${product.description}</p></div>`;
+        
+        sizeSelector.innerHTML = sizes.map((size, index) => `<button class="size-btn ${index === 1 ? 'selected' : ''}" data-size="${size.name}" data-multiplier="${size.multiplier}">${size.name} ($${(product.basePrice * size.multiplier).toFixed(2)})</button>`).join('');
+        
+        sizeSelector.querySelectorAll('.size-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            sizeSelector.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedSize = sizes.find(s => s.name === this.dataset.size);
+            currentPrice = product.basePrice * selectedSize.multiplier;
+            updateModal();
+          });
+        });
+        
+        function updateModal() {
+          quantityDisplay.textContent = quantity;
+          const total = currentPrice * quantity;
+          totalPrice.textContent = `Total: $${total.toFixed(2)}`;
+        }
+        
+        decreaseBtn.onclick = () => { if (quantity > 1) { quantity--; updateModal(); } };
+        increaseBtn.onclick = () => { quantity++; updateModal(); };
+        
+        confirmBtn.onclick = function() {
+          const existingItemIndex = cart.findIndex(item => item.id === product.id && item.size === selectedSize.name && !item.customization);
+          if (existingItemIndex !== -1) cart[existingItemIndex].quantity += quantity;
+          else cart.push({ id: product.id, name: product.name, price: currentPrice, quantity: quantity, size: selectedSize.name, image: product.image, basePrice: product.basePrice });
+          
+          renderCartItems();
+          updateCartCount();
+          hideModal(modal);
+          showNotification(`${product.name} (${selectedSize.name}) añadido al carrito`, 'success');
+        };
+        
+        updateModal();
+        showModal(modal);
+      };
+      
+      cartBtn.addEventListener('click', () => { renderCartItems(); showModal(cartModal); });
+      closeCartModal.addEventListener('click', () => hideModal(cartModal));
+      
+      checkoutBtn.addEventListener('click', function() {
+        if (cart.length === 0) { showNotification('El carrito está vacío', 'error'); return; }
+        hideModal(cartModal);
+        showModal(checkoutModal);
+      });
+      
+      updateCartCount();
+    }
+    
+    // ===== PERSONALIZACIÓN =====
+    function initCustomizeSystem() {
+      const customizeModal = document.getElementById('customizeModal');
+      const closeCustomizeModal = document.getElementById('closeCustomizeModal');
+      const addCustomToCartBtn = document.getElementById('addCustomToCart');
+      const customizeDecreaseBtn = document.getElementById('customizeDecreaseQuantity');
+      const customizeIncreaseBtn = document.getElementById('customizeIncreaseQuantity');
+      const customizeQuantityDisplay = document.getElementById('customizeQuantityDisplay');
+      const customizeSizeSelector = document.getElementById('customizeSizeSelector');
+      const selectAllFlavorsBtn = document.getElementById('selectAllFlavors');
+      const selectAllToppingsBtn = document.getElementById('selectAllToppings');
+      const selectAllExtrasBtn = document.getElementById('selectAllExtras');
+      
+      const bases = [
+        { id: 1, name: 'Helado Cremoso', price: 6.50, description: 'Base tradicional de helado' },
+        { id: 2, name: 'Yogurt Helado', price: 5.75, description: 'Base de yogurt bajo en grasa' },
+        { id: 3, name: 'Helado Vegano', price: 7.00, description: 'Base de almendras y coco' },
+        { id: 4, name: 'Sorbete', price: 5.25, description: 'Base de fruta sin lácteos' }
+      ];
+      
+      const flavors = [
+        { id: 1, name: 'Vainilla', color: '#F8E9A1', price: 0 },
+        { id: 2, name: 'Chocolate', color: '#7B3F00', price: 0 },
+        { id: 3, name: 'Fresa', color: '#FF6B8B', price: 0 },
+        { id: 4, name: 'Mango', color: '#FFB347', price: 0 },
+        { id: 5, name: 'Menta', color: '#98FB98', price: 0 },
+        { id: 6, name: 'Café', color: '#8B4513', price: 0.50 },
+        { id: 7, name: 'Avellana', color: '#D2691E', price: 0.75 },
+        { id: 8, name: 'Dulce de Leche', color: '#DEB887', price: 0.50 },
+        { id: 9, name: 'Frambuesa', color: '#E30B5C', price: 0.50 },
+        { id: 10, name: 'Coco', color: '#F5F5DC', price: 0.50 },
+        { id: 11, name: 'Piña Colada', color: '#FFFACD', price: 0.75 },
+        { id: 12, name: 'Chocolate Blanco', color: '#FFF8DC', price: 0.75 }
+      ];
+      
+      const toppings = [
+        { id: 1, name: 'Chispas de Chocolate', price: 0.75 },
+        { id: 2, name: 'Fresas Frescas', price: 1.00 },
+        { id: 3, name: 'Nueces Caramelizadas', price: 1.25 },
+        { id: 4, name: 'Salsa de Caramelo', price: 0.75 },
+        { id: 5, name: 'Salsa de Chocolate', price: 0.75 },
+        { id: 6, name: 'Crema Batida', price: 0.50 },
+        { id: 7, name: 'Coco Rallado', price: 0.50 },
+        { id: 8, name: 'Cerezas', price: 0.75 },
+        { id: 9, name: 'Galletas Oreo', price: 1.00 },
+        { id: 10, name: 'M&M\'s', price: 1.25 }
+      ];
+      
+      const extras = [
+        { id: 1, name: 'Barquilla Regular', price: 0.50 },
+        { id: 2, name: 'Barquilla de Chocolate', price: 0.75 },
+        { id: 3, name: 'Cono de Azúcar', price: 1.00 },
+        { id: 4, name: 'Vaso Grande', price: 0.25 },
+        { id: 5, name: 'Cucharita de Chocolate', price: 0.50 },
+        { id: 6, name: 'Velita de Cumpleaños', price: 0.25 }
+      ];
+      
+      let selectedBase = null;
+      let selectedFlavors = [];
+      let selectedToppings = [];
+      let selectedExtras = [];
+      let selectedSize = sizes[1];
+      let customizeQuantity = 1;
+      const MAX_FLAVORS = 5;
+      
+      window.openCustomizeModal = function() {
+        selectedBase = null;
+        selectedFlavors = [];
+        selectedToppings = [];
+        selectedExtras = [];
+        selectedSize = sizes[1];
+        customizeQuantity = 1;
+        renderCustomizeOptions();
+        updateCustomizeSummary();
+        showModal(customizeModal);
+      };
+      
+      function renderCustomizeOptions() {
+        const baseContainer = document.getElementById('baseOptions');
+        baseContainer.innerHTML = bases.map(base => `<button class="option-btn ${selectedBase && selectedBase.id === base.id ? 'selected' : ''}" data-id="${base.id}" data-price="${base.price}" data-name="${base.name}">${base.name} ($${base.price.toFixed(2)})</button>`).join('');
+        
+        document.querySelectorAll('#baseOptions .option-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const baseId = parseInt(this.dataset.id);
+            selectedBase = bases.find(b => b.id === baseId);
+            document.querySelectorAll('#baseOptions .option-btn').forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
+            updateCustomizeSummary();
+          });
+        });
+        
+        const flavorContainer = document.getElementById('flavorOptions');
+        flavorContainer.innerHTML = flavors.map(flavor => `<div class="flavor-option ${selectedFlavors.some(f => f.id === flavor.id) ? 'selected' : ''}" data-id="${flavor.id}" data-name="${flavor.name}" data-price="${flavor.price}" data-color="${flavor.color}"><div class="flavor-color" style="background: ${flavor.color};"></div><div class="flavor-name">${flavor.name}</div>${flavor.price > 0 ? `<div style="font-size: 0.8rem; color: var(--primary); margin-top: 5px;">+$${flavor.price.toFixed(2)}</div>` : ''}</div>`).join('');
+        
+        document.querySelectorAll('#flavorOptions .flavor-option').forEach(option => {
+          option.addEventListener('click', function() {
+            const flavorId = parseInt(this.dataset.id);
+            const flavor = flavors.find(f => f.id === flavorId);
+            const isSelected = selectedFlavors.some(f => f.id === flavorId);
+            
+            if (isSelected) {
+              selectedFlavors = selectedFlavors.filter(f => f.id !== flavorId);
+              this.classList.remove('selected');
+            } else {
+              if (selectedFlavors.length >= MAX_FLAVORS) { showNotification(`Máximo ${MAX_FLAVORS} sabores permitidos`, 'warning'); return; }
+              selectedFlavors.push(flavor);
+              this.classList.add('selected');
+            }
+            updateSelectedFlavorsDisplay();
+            updateCustomizeSummary();
+          });
+        });
+        
+        selectAllFlavorsBtn.addEventListener('click', function() {
+          if (selectedFlavors.length === flavors.length) {
+            selectedFlavors = [];
+            document.querySelectorAll('#flavorOptions .flavor-option').forEach(option => option.classList.remove('selected'));
+            this.textContent = 'Seleccionar Todos';
+          } else {
+            selectedFlavors = [];
+            flavors.slice(0, MAX_FLAVORS).forEach(flavor => selectedFlavors.push(flavor));
+            document.querySelectorAll('#flavorOptions .flavor-option').forEach((option, index) => { if (index < MAX_FLAVORS) option.classList.add('selected'); else option.classList.remove('selected'); });
+            if (selectedFlavors.length === MAX_FLAVORS) this.textContent = 'Deseleccionar Todos';
+          }
+          updateSelectedFlavorsDisplay();
+          updateCustomizeSummary();
+        });
+        
+        const toppingContainer = document.getElementById('toppingOptions');
+        toppingContainer.innerHTML = toppings.map(topping => `<button class="option-btn ${selectedToppings.some(t => t.id === topping.id) ? 'selected' : ''}" data-id="${topping.id}" data-price="${topping.price}" data-name="${topping.name}">${topping.name} ($${topping.price.toFixed(2)})</button>`).join('');
+        
+        document.querySelectorAll('#toppingOptions .option-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const toppingId = parseInt(this.dataset.id);
+            const topping = toppings.find(t => t.id === toppingId);
+            const isSelected = selectedToppings.some(t => t.id === toppingId);
+            if (isSelected) { selectedToppings = selectedToppings.filter(t => t.id !== toppingId); this.classList.remove('selected'); }
+            else { selectedToppings.push(topping); this.classList.add('selected'); }
+            updateCustomizeSummary();
+          });
+        });
+        
+        selectAllToppingsBtn.addEventListener('click', function() {
+          if (selectedToppings.length === toppings.length) {
+            selectedToppings = [];
+            document.querySelectorAll('#toppingOptions .option-btn').forEach(btn => btn.classList.remove('selected'));
+            this.textContent = 'Seleccionar Todos';
+          } else {
+            selectedToppings = [...toppings];
+            document.querySelectorAll('#toppingOptions .option-btn').forEach(btn => btn.classList.add('selected'));
+            this.textContent = 'Deseleccionar Todos';
+          }
+          updateCustomizeSummary();
+        });
+        
+        const extraContainer = document.getElementById('extraOptions');
+        extraContainer.innerHTML = extras.map(extra => `<button class="option-btn ${selectedExtras.some(e => e.id === extra.id) ? 'selected' : ''}" data-id="${extra.id}" data-price="${extra.price}" data-name="${extra.name}">${extra.name} ($${extra.price.toFixed(2)})</button>`).join('');
+        
+        document.querySelectorAll('#extraOptions .option-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const extraId = parseInt(this.dataset.id);
+            const extra = extras.find(e => e.id === extraId);
+            const isSelected = selectedExtras.some(e => e.id === extraId);
+            if (isSelected) { selectedExtras = selectedExtras.filter(e => e.id !== extraId); this.classList.remove('selected'); }
+            else { selectedExtras.push(extra); this.classList.add('selected'); }
+            updateCustomizeSummary();
+          });
+        });
+        
+        selectAllExtrasBtn.addEventListener('click', function() {
+          if (selectedExtras.length === extras.length) {
+            selectedExtras = [];
+            document.querySelectorAll('#extraOptions .option-btn').forEach(btn => btn.classList.remove('selected'));
+            this.textContent = 'Seleccionar Todos';
+          } else {
+            selectedExtras = [...extras];
+            document.querySelectorAll('#extraOptions .option-btn').forEach(btn => btn.classList.add('selected'));
+            this.textContent = 'Deseleccionar Todos';
+          }
+          updateCustomizeSummary();
+        });
+        
+        customizeSizeSelector.querySelectorAll('.size-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            customizeSizeSelector.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedSize = sizes.find(s => s.name.toLowerCase() === this.dataset.size);
+            updateCustomizeSummary();
+          });
+        });
+        
+        customizeDecreaseBtn.addEventListener('click', function() { if (customizeQuantity > 1) { customizeQuantity--; customizeQuantityDisplay.textContent = customizeQuantity; updateCustomizeSummary(); } });
+        customizeIncreaseBtn.addEventListener('click', function() { customizeQuantity++; customizeQuantityDisplay.textContent = customizeQuantity; updateCustomizeSummary(); });
+      }
+      
+      function updateSelectedFlavorsDisplay() {
+        const container = document.getElementById('selectedFlavorsDisplay');
+        if (selectedFlavors.length === 0) { container.innerHTML = '<div style="color: #666; text-align: center;">Selecciona hasta 5 sabores</div>'; return; }
+        container.innerHTML = selectedFlavors.map(flavor => `<div class="selected-flavor"><div class="selected-color" style="background: ${flavor.color};"></div><span>${flavor.name}</span></div>`).join('');
+      }
+      
+      function updateCustomizeSummary() {
+        let total = 0;
+        if (selectedBase) { total += selectedBase.price; document.getElementById('summaryBase').textContent = `${selectedBase.name} ($${selectedBase.price.toFixed(2)})`; } else document.getElementById('summaryBase').textContent = '-';
+        
+        if (selectedFlavors.length > 0) {
+          const flavorNames = selectedFlavors.map(f => f.name).join(', ');
+          const flavorCost = selectedFlavors.reduce((sum, f) => sum + f.price, 0);
+          total += flavorCost;
+          document.getElementById('summaryFlavors').textContent = `${flavorNames} ($${flavorCost.toFixed(2)})`;
+        } else document.getElementById('summaryFlavors').textContent = '-';
+        
+        if (selectedToppings.length > 0) {
+          const toppingNames = selectedToppings.map(t => t.name).join(', ');
+          const toppingCost = selectedToppings.reduce((sum, t) => sum + t.price, 0);
+          total += toppingCost;
+          document.getElementById('summaryToppings').textContent = `${toppingNames} ($${toppingCost.toFixed(2)})`;
+        } else document.getElementById('summaryToppings').textContent = '-';
+        
+        if (selectedExtras.length > 0) {
+          const extraNames = selectedExtras.map(e => e.name).join(', ');
+          const extraCost = selectedExtras.reduce((sum, e) => sum + e.price, 0);
+          total += extraCost;
+          document.getElementById('summaryExtras').textContent = `${extraNames} ($${extraCost.toFixed(2)})`;
+        } else document.getElementById('summaryExtras').textContent = '-';
+        
+        total *= selectedSize.multiplier;
+        document.getElementById('summarySize').textContent = selectedSize.name;
+        document.getElementById('summaryQuantity').textContent = customizeQuantity;
+        total *= customizeQuantity;
+        document.getElementById('summaryTotal').textContent = `$${total.toFixed(2)}`;
+      }
+      
+      addCustomToCartBtn.addEventListener('click', function() {
+        if (!selectedBase) { showNotification('Por favor selecciona una base', 'error'); return; }
+        if (selectedFlavors.length === 0) { showNotification('Por favor selecciona al menos un sabor', 'error'); return; }
+        
+        let basePrice = selectedBase.price;
+        basePrice += selectedFlavors.reduce((sum, f) => sum + f.price, 0);
+        basePrice += selectedToppings.reduce((sum, t) => sum + t.price, 0);
+        basePrice += selectedExtras.reduce((sum, e) => sum + e.price, 0);
+        const finalPrice = basePrice * selectedSize.multiplier;
+        
+        const flavorNames = selectedFlavors.map(f => f.name).join(' + ');
+        const toppingNames = selectedToppings.length > 0 ? ` con ${selectedToppings.map(t => t.name).join(', ')}` : '';
+        const extraNames = selectedExtras.length > 0 ? ` y ${selectedExtras.map(e => e.name).join(', ')}` : '';
+        const customization = `${selectedBase.name}: ${flavorNames}${toppingNames}${extraNames}`;
+        
+        cart.push({ id: Date.now(), name: 'Helado Personalizado', price: finalPrice, quantity: customizeQuantity, size: selectedSize.name, image: 'https://images.unsplash.com/photo-1560008581-09826d1de69e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', customization: customization, basePrice: basePrice });
+        
+        if (window.renderCartItems) window.renderCartItems();
+        if (window.updateCartCount) window.updateCartCount();
+        
+        hideModal(customizeModal);
+        showNotification(`¡${customizeQuantity} helado(s) personalizado(s) añadido(s) al carrito!`, 'success');
+      });
+      
+      closeCustomizeModal.addEventListener('click', () => hideModal(customizeModal));
+    }
+    
+    // ===== SISTEMA DE ENTREGA CON REGISTRO DE VENTA =====
+    function initDeliverySystem() {
+      const checkoutForm = document.getElementById('checkoutForm');
+      const deliveryOptions = document.querySelectorAll('.delivery-option');
+      const deliveryAddressGroup = document.getElementById('deliveryAddressGroup');
+      const confirmationModal = document.getElementById('confirmationModal');
+      const closeConfirmationModal = document.getElementById('closeConfirmationModal');
+      const closeCheckoutModal = document.getElementById('closeCheckoutModal');
+      const timeRange = document.getElementById('timeRange');
+      const deliveryType = document.getElementById('deliveryType');
+      const minutesElement = document.getElementById('minutes');
+      const deliveryProgress = document.getElementById('deliveryProgress');
+      
+      let deliveryTimer = null;
+      let selectedDeliveryType = 'pickup';
+      let estimatedTime = '20-30 minutos';
+      
+      deliveryOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          deliveryOptions.forEach(opt => opt.classList.remove('selected'));
+          this.classList.add('selected');
+          selectedDeliveryType = this.dataset.type;
+          if (selectedDeliveryType === 'delivery') { deliveryAddressGroup.style.display = 'block'; estimatedTime = '45-60 minutos'; }
+          else { deliveryAddressGroup.style.display = 'none'; estimatedTime = '20-30 minutos'; }
+        });
+      });
+      
+      checkoutForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('customerName').value;
+        const email = document.getElementById('customerEmail').value;
+        const phone = document.getElementById('customerPhone').value;
+        
+        if (!name || !email || !phone) { showNotification('Por favor completa todos los campos requeridos', 'error'); return; }
+        
+        if (selectedDeliveryType === 'delivery') {
+          const address = document.getElementById('deliveryAddress').value;
+          if (!address) { showNotification('Por favor ingresa tu dirección de entrega', 'error'); return; }
+        }
+        
+        const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const deliveryFee = selectedDeliveryType === 'delivery' ? 5.00 : 0;
+        const orderTotal = cartTotal + deliveryFee;
+        const itbisAmount = orderTotal * 0.18;
+        const subtotalAmount = orderTotal - itbisAmount;
+        
+        const orderNumber = 'ORD-' + Date.now().toString().slice(-6);
+        const orderDate = new Date().toLocaleDateString();
+        
+        const newOrder = {
+          id: Date.now(),
+          userId: window.authSystem?.currentUser?.id || null,
+          orderNumber: orderNumber,
+          date: orderDate,
+          status: 'pending',
+          deliveryType: selectedDeliveryType,
+          total: orderTotal,
+          items: cart.map(item => ({ name: item.name, quantity: item.quantity, total: item.price * item.quantity, customization: item.customization || null, size: item.size || null }))
+        };
+        
+        orderHistory.unshift(newOrder);
+        localStorage.setItem('frioFantasyOrderHistory', JSON.stringify(orderHistory));
+        
+        // ===== REGISTRAR VENTA EN EL SISTEMA DE FACTURACIÓN =====
+        const nuevaVenta = {
+          id: Date.now(),
+          folio: `F-${Date.now()}`,
+          fecha: new Date().toLocaleString(),
+          clienteNombre: name,
+          clienteRnc: '',
+          clienteEmail: email,
+          clienteTelefono: phone,
+          tipoEntrega: selectedDeliveryType === 'delivery' ? 'Envío a domicilio' : 'Recoger en tienda',
+          direccion: selectedDeliveryType === 'delivery' ? document.getElementById('deliveryAddress').value : 'Recoger en tienda',
+          metodoPago: document.getElementById('paymentMethod').value === 'cash' ? 'Efectivo' : 'Tarjeta',
+          subtotal: subtotalAmount,
+          itbis: itbisAmount,
+          total: orderTotal,
+          items: cart.map(item => ({
+            nombre: item.name,
+            cantidad: item.quantity,
+            precio: item.price,
+            subtotal: item.price * item.quantity,
+            tamaño: item.size || 'Regular',
+            personalizacion: item.customization || null
+          })),
+          estado: 'completada',
+          timestamp: new Date().toISOString()
+        };
+        
+        ventasRegistradas.push(nuevaVenta);
+        localStorage.setItem('frioFantasyVentas', JSON.stringify(ventasRegistradas));
+        
+        console.log('='.repeat(60));
+        console.log('🛒 NUEVA VENTA REGISTRADA EN EL SISTEMA');
+        console.log('='.repeat(60));
+        console.log(`📄 Folio: ${nuevaVenta.folio}`);
+        console.log(`👤 Cliente: ${nuevaVenta.clienteNombre}`);
+        console.log(`📧 Email: ${nuevaVenta.clienteEmail}`);
+        console.log(`📞 Teléfono: ${nuevaVenta.clienteTelefono}`);
+        console.log(`🚚 Tipo de entrega: ${nuevaVenta.tipoEntrega}`);
+        console.log(`📍 Dirección: ${nuevaVenta.direccion}`);
+        console.log(`💳 Método de pago: ${nuevaVenta.metodoPago}`);
+        console.log(`💰 Subtotal: $${nuevaVenta.subtotal.toFixed(2)}`);
+        console.log(`📊 ITBIS (18%): $${nuevaVenta.itbis.toFixed(2)}`);
+        console.log(`💵 TOTAL: $${nuevaVenta.total.toFixed(2)}`);
+        console.log(`📦 Productos:`);
+        nuevaVenta.items.forEach((item, idx) => {
+          console.log(`   ${idx + 1}. ${item.nombre} x${item.cantidad} - $${item.subtotal.toFixed(2)} (${item.tamaño})${item.personalizacion ? ` - ${item.personalizacion}` : ''}`);
+        });
+        console.log('='.repeat(60));
+        console.log(`📊 Total de ventas registradas: ${ventasRegistradas.length}`);
+        console.log('='.repeat(60));
+        
+        showNotification(`¡Pedido #${orderNumber} registrado en el sistema!`, 'success');
+        
+        timeRange.textContent = estimatedTime;
+        deliveryType.textContent = selectedDeliveryType === 'pickup' ? 'Recoger en tienda' : 'Envío a domicilio';
+        document.getElementById('orderNumber').textContent = orderNumber;
+        
+        startDeliveryCountdown();
+        
+        cart = [];
+        localStorage.removeItem('frioFantasyCart');
+        
+        if (window.updateCartCount) window.updateCartCount();
+        
+        if (window.profileSystem && window.profileSystem.currentUser) {
+          window.profileSystem.currentUser.orders = window.profileSystem.currentUser.orders || [];
+          window.profileSystem.currentUser.orders.push(newOrder);
+          window.profileSystem.saveUserData();
+        }
+        
+        hideModal(checkoutModal);
+        showModal(confirmationModal);
+        
+        checkoutForm.reset();
+        deliveryAddressGroup.style.display = 'none';
+        deliveryOptions[1].classList.add('selected');
+        deliveryOptions[0].classList.remove('selected');
+        selectedDeliveryType = 'pickup';
+        estimatedTime = '20-30 minutos';
+      });
+      
+      function startDeliveryCountdown() {
+        const maxTime = selectedDeliveryType === 'delivery' ? 60 : 30;
+        let minutesLeft = maxTime;
+        
+        minutesElement.textContent = minutesLeft;
+        deliveryProgress.style.width = '0%';
+        
+        if (deliveryTimer) clearInterval(deliveryTimer);
+        
+        deliveryTimer = setInterval(() => {
+          minutesLeft--;
+          minutesElement.textContent = minutesLeft;
+          const progress = 100 - (minutesLeft / maxTime * 100);
+          deliveryProgress.style.width = `${progress}%`;
+          if (minutesLeft <= 0) { clearInterval(deliveryTimer); deliveryProgress.style.width = '100%'; showNotification('¡Tu pedido ha sido entregado!', 'success'); }
+        }, 1000);
+      }
+      
+      closeConfirmationModal.addEventListener('click', function() { if (deliveryTimer) clearInterval(deliveryTimer); hideModal(confirmationModal); });
+      closeCheckoutModal.addEventListener('click', () => hideModal(checkoutModal));
+    }
+    
+    // ===== MODALES =====
+    function initModals() {
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(modal => hideModal(modal)); });
+      document.querySelectorAll('.modal-overlay').forEach(modal => { modal.addEventListener('click', function(e) { if (e.target === this) hideModal(this); }); });
+      document.querySelectorAll('.modal-close').forEach(btn => { btn.addEventListener('click', function() { const modal = this.closest('.modal-overlay'); hideModal(modal); }); });
+    }
+    
+    function showModal(modal) { modal.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function hideModal(modal) { modal.classList.remove('active'); document.body.style.overflow = 'auto'; }
+    
+    function showNotification(message, type = 'success') {
+      const existing = document.querySelector('.notification');
+      if (existing) existing.remove();
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      notification.innerHTML = `<div class="notification-content"><i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i><span>${message}</span></div>`;
+      document.body.appendChild(notification);
+      setTimeout(() => notification.classList.add('show'), 10);
+      setTimeout(() => { notification.classList.remove('show'); setTimeout(() => notification.remove(), 300); }, 3000);
+    }
+    
+    window.updateCartCount = function() {
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById('cartCount').textContent = totalItems;
+      localStorage.setItem('frioFantasyCart', JSON.stringify(cart));
+    };
+    
+    window.renderCartItems = function() {
+      const container = document.getElementById('cartItemsContainer');
+      const totalElement = document.getElementById('cartTotalPrice');
+      if (cart.length === 0) { container.innerHTML = '<p style="text-align: center; color: #666; padding: 30px;">Tu carrito está vacío</p>'; totalElement.textContent = '$0.00'; return; }
+      let total = 0; container.innerHTML = '';
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        cartItem.style.cssText = `display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee;`;
+        cartItem.innerHTML = `<div><h4 style="margin: 0 0 5px 0;">${item.name}</h4>${item.size ? `<div style="font-size: 0.8rem; color: #666;">Tamaño: ${item.size}</div>` : ''}${item.customization ? `<div style="font-size: 0.8rem; color: #666;">${item.customization}</div>` : ''}<div style="display: flex; align-items: center; gap: 10px;"><button class="decrease-qty" data-index="${index}" style="width: 25px; height: 25px; border-radius: 50%; border: 1px solid #ddd; background: var(--light);">-</button><span>${item.quantity}</span><button class="increase-qty" data-index="${index}" style="width: 25px; height: 25px; border-radius: 50%; border: 1px solid #ddd; background: var(--light);">+</button></div></div><div style="text-align: right;"><div style="font-weight: 600; color: var(--primary);">$${itemTotal.toFixed(2)}</div><button class="remove-item" data-index="${index}" style="background: none; border: none; color: var(--primary); cursor: pointer; font-size: 0.9rem;"><i class="fas fa-trash"></i> Eliminar</button></div>`;
+        container.appendChild(cartItem);
+      });
+      totalElement.textContent = `$${total.toFixed(2)}`;
+      document.querySelectorAll('.decrease-qty').forEach(btn => { btn.addEventListener('click', function() { const index = parseInt(this.dataset.index); if (cart[index].quantity > 1) cart[index].quantity--; else cart.splice(index, 1); window.renderCartItems(); window.updateCartCount(); }); });
+      document.querySelectorAll('.increase-qty').forEach(btn => { btn.addEventListener('click', function() { const index = parseInt(this.dataset.index); cart[index].quantity++; window.renderCartItems(); window.updateCartCount(); }); });
+      document.querySelectorAll('.remove-item').forEach(btn => { btn.addEventListener('click', function() { const index = parseInt(this.dataset.index); cart.splice(index, 1); window.renderCartItems(); window.updateCartCount(); }); });
+    };
+  </script>
+</body>
+</html>
